@@ -14,5 +14,3 @@
 * We could assign more specific roles.
 * We could prioritise user stories.
 * We need to more specifically define our DoD.
-
-this is a test by phil
