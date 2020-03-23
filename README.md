@@ -12,3 +12,5 @@
 ### What Could Be Done Differently?
 * We could plan our time better.
 * We could assign more specific roles.
+* We could prioritise user stories.
+* We need to more specifically define our DoD.
