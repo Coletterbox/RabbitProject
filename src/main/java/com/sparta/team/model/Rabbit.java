@@ -1,4 +1,5 @@
 package com.sparta.team.model;
 
-public interface Rabbit {
+public abstract class Rabbit implements RabbitInterface {
 }
+
