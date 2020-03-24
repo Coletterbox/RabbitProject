@@ -29,5 +29,9 @@ public abstract class Rabbit implements RabbitInterface {
             isAlive = false;
         }
     }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
 }
 

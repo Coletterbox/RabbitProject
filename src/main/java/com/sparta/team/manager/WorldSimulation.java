@@ -42,7 +42,7 @@ public class WorldSimulation {
 
         for (MaleRabbit r : maleRabbits) {
             r.incrementAge();
-            if (!r.isAlive) {
+            if (!r.isAlive()) {
                 removeDeadRabbit(r);
                 continue;
             }
@@ -54,15 +54,15 @@ public class WorldSimulation {
 
         for (FemaleRabbit r : femaleRabbits) {
             r.incrementAge();
-            if (!r.isAlive) {
+            if (!r.isAlive()) {
                 removeDeadRabbit(r);
                 continue;
             }
             //this implementation only works for 1 month long pregnancies
-            if (r.isPregnant) {
+            if (r.isPregnant()) {
                 addNewRabbits(r.giveBirth());
             } else if (maleRabbitMature && r.isMature()) {
-                r.isPregnant = true;
+                r.setPregnant(true);
             }
         }
     }

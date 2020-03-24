@@ -6,6 +6,7 @@ import java.util.Random;
 public class FemaleRabbit extends Rabbit {
 
     private static final int PREGNANCY_LENGTH = 1;
+    private boolean isPregnant = false;
 
     public FemaleRabbit() {
         super();
@@ -25,5 +26,13 @@ public class FemaleRabbit extends Rabbit {
             }
         }
         return listOfBunnies;
+    }
+
+    public boolean isPregnant() {
+        return isPregnant;
+    }
+
+    public void setPregnant(boolean pregnant) {
+        isPregnant = pregnant;
     }
 }
