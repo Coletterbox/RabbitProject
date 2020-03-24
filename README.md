@@ -1,3 +1,5 @@
+**NOTE: Please feel free to use the readme as a sandbox if you need to test Git things! :)**
+
 # Rabbit Project
 ![](https://media.giphy.com/media/YQCp9d6HrlnoI/giphy.gif)
 
