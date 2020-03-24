@@ -6,19 +6,6 @@
 ![](https://media.giphy.com/media/YQCp9d6HrlnoI/giphy.gif)
 
 ----
-
-## Sprint Log Template
-### Day \[number\]
-#### Sprint \[number\]: \[number\] minutes
-#### Scrum master: \[name\]
-#### Sprint review:
-* What has been done?
-* What has not been done?
-#### Sprint retrospective:
-* What went well?
-* What did not go as well?
-* What could be done differently?
-
 ![](https://www.quickscrum.com/Images/article_detail/scrum-retrospective-meeting.png)
 
 ----
@@ -43,13 +30,41 @@
   * We could prioritise user stories.
   * We need to more specifically define our DoD.
   
+  ----
   
+#### Day 2, Sprint 2: 60 mins 
+#### Scrum master: James
+#### Sprint review:
+ * What has been done?
+  *  Created the Abstract rabbit class with sub male and female rabbit classes: Seb, Lubnah, James
+  *  Created the controller class, WorldSimulation: Alonso, Colette.
+  *  Created the Display Manager class: Philip, Tolga.
+#### Sprint retrospective:
+* What went well?
+  * Time boxing went well as each group finish creating their class' in an hour.
+  * The planning was good enough that group members knew what to do.
+* What did not go as well?
+  * Members struggled with git, so this took up a fair bit of time.
+* What could be done differently?
+  * A better group understanding of git before starting the sprint
   
+  ----
   
-  
-  
+  #### Day 2, Sprint 3: 60 mins 
+#### Scrum master: James
+#### Sprint review:
+ * What has been done?
+  * The whole group worked together to merge the classes they made in the previous sprint to a branch.
+#### Sprint retrospective:
+* What went well?
+  * The group gained a better understanding of git as teamwork was used to solve git issues. 
+* What did not go as well?
+  * This took longer than expected and the allocated time was overun by 15 minutes.
+* What could be done differently?
+  * Some group members could have worked on something else as this was probably not a 7 memeber job.
   
   -----
+  
 #### Day 2, Sprint 4: 60 mins 
 #### Scrum master: Lubnah
 #### Sprint review:
