@@ -1,7 +1,11 @@
 **NOTE: Please feel free to use the readme as a sandbox if you need to test Git things! :)**
 
+----
+
 # Rabbit Project
 ![](https://media.giphy.com/media/YQCp9d6HrlnoI/giphy.gif)
+
+----
 
 ## Sprint Log Template
 ### Day \[number\]
@@ -17,8 +21,9 @@
 
 ![](https://www.quickscrum.com/Images/article_detail/scrum-retrospective-meeting.png)
 
-### Day 1
-#### Sprint 1: \[number\] minutes
+----
+
+#### Day 1, Sprint 1: \[number\] minutes
 #### Scrum master: Alfonso
 #### Sprint review:
 * What has been done?
@@ -42,7 +47,10 @@
   * \[insert point\]
   * \[insert another point\]
   * \[etc.\]
-#### Sprint 2: \[number\] minutes
+  
+----
+ 
+#### Day 1, Sprint 2: \[number\] minutes
 #### Scrum master: Colette
 #### Sprint review:
 * What has been done?
