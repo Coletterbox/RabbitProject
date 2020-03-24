@@ -22,7 +22,7 @@ public class DisplayManager implements DisplayManagerInterface {
     public void displayTimeElapsed(int time) {
 //        float numberOfYearsInSimulation = (float) time;
 //        String formattedString = String.format("%.01f", (numberOfYearsInSimulation/12f));
-        log.debug("The simulation has been running for " + (time/12)+ "years " + (time%12) + " months.");
+        log.debug("The simulation has been running for " + (time/12)+ " years " + (time%12) + " months");
 
     }
 

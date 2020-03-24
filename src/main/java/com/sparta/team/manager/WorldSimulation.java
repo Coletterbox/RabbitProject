@@ -1,10 +1,12 @@
 package com.sparta.team.manager;
 
+import com.sparta.team.display.DisplayManager;
 import com.sparta.team.model.FemaleRabbit;
 import com.sparta.team.model.MaleRabbit;
 import com.sparta.team.model.Rabbit;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class WorldSimulation {
@@ -18,7 +20,6 @@ public class WorldSimulation {
 
     public void startSimulation(int numberOfSeconds) {
 
-
         //hardcoded initial population
         maleRabbits.add(new MaleRabbit());
         femaleRabbits.add(new FemaleRabbit());
@@ -28,8 +29,12 @@ public class WorldSimulation {
         for (int i = 0; i < numberOfSeconds; i++) {
             update();
         }
-    }
 
+        DisplayManager displayManager = new DisplayManager();
+        displayManager.displayTimeElapsed(numberOfSeconds);
+        displayManager.displayRabbitsAlive(maleRabbits.size(), femaleRabbits.size());
+        displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
+    }
 
     private void update() {
         /*
@@ -40,33 +45,42 @@ public class WorldSimulation {
          */
         boolean maleRabbitMature = false;
 
+        List<MaleRabbit> toRemoveMales = new ArrayList<>();
+
         for (MaleRabbit r : maleRabbits) {
             r.incrementAge();
             if (!r.isAlive()) {
-                removeDeadRabbit(r);
+//                removeDeadRabbit(r);
+                toRemoveMales.add(r);
                 continue;
             }
             if (r.isMature()) {
                 maleRabbitMature = true;
             }
         }
+        maleRabbits.removeAll(toRemoveMales);
 
+        List<FemaleRabbit> toRemoveFemales = new ArrayList<>();
+        List<Rabbit> toAddRabbits = new ArrayList<>();
 
         for (FemaleRabbit r : femaleRabbits) {
             r.incrementAge();
             if (!r.isAlive()) {
-                removeDeadRabbit(r);
+//                removeDeadRabbit(r);
+                toRemoveFemales.add(r);
                 continue;
             }
             //this implementation only works for 1 month long pregnancies
             if (r.isPregnant()) {
-                addNewRabbits(r.giveBirth());
+//                addNewRabbits(r.giveBirth());
+                toAddRabbits.addAll(r.giveBirth());
             } else if (maleRabbitMature && r.isMature()) {
                 r.setPregnant(true);
             }
         }
+        femaleRabbits.removeAll(toRemoveFemales);
+        addNewRabbits(toAddRabbits);
     }
-
 
     private void removeDeadRabbit(Rabbit r) {
         if (r instanceof MaleRabbit) {
@@ -75,7 +89,6 @@ public class WorldSimulation {
             femaleRabbits.remove(r);
         }
     }
-
 
     private void addNewRabbits(List<Rabbit> rabbitList) {
         for (Rabbit r : rabbitList) {
@@ -88,6 +101,4 @@ public class WorldSimulation {
             }
         }
     }
-
-
 }

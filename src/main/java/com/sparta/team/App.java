@@ -1,13 +1,11 @@
 package com.sparta.team;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import com.sparta.team.manager.WorldSimulation;
+
+public class App {
+    public static void main(String[] args) {
+
+        WorldSimulation worldSimulation = new WorldSimulation();
+        worldSimulation.startSimulation(9);
     }
 }
