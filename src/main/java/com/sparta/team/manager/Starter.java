@@ -1,10 +1,10 @@
-package com.sparta.team;
+package com.sparta.team.manager;
 
 /**
  * Hello world!
  *
  */
-public class App 
+public class Starter
 {
     public static void main( String[] args )
     {
