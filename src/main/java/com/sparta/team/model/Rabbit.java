@@ -25,6 +25,9 @@ public abstract class Rabbit implements RabbitInterface {
     @Override
     public void incrementAge() {
         ageInMonths++;
+        if (ageInMonths > 60) {
+            isAlive = false;
+        }
     }
 }
 
