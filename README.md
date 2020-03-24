@@ -75,7 +75,7 @@
 * What could be done differently?
   * Some group members could have worked on something else as this was probably not a 7 memeber job.
   
-  -----
+-----
   
 #### Day 2, Sprint 4: 60 mins 
 #### Scrum master: Lubnah
@@ -93,6 +93,7 @@
 * What could be done differently?
   * Designing the program in a way that less refactoring would need to be done
   
+----
  
 #### Day 2, Sprint 5: 60 mins 
 #### Scrum master: Lubnah
