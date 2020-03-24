@@ -18,14 +18,50 @@
 ![](https://www.quickscrum.com/Images/article_detail/scrum-retrospective-meeting.png)
 
 ### Day 1
-#### What Went Well?
-* We worked well as a team and were able to cleanly split the workload when needed.
-* We planned the project (in terms of classes, methods and file structure) very carefully.
-* We all had a really fun day.
-#### What Did Not Go As Well?
-* We did not timebox carefully.
-#### What Could Be Done Differently?
-* We could plan our time better.
-* We could assign more specific roles.
-* We could prioritise user stories.
-* We need to more specifically define our DoD.
+#### Sprint 1: \[number\] minutes
+#### Scrum master: Alfonso
+#### Sprint review:
+* What has been done?
+  * \[insert point\]
+  * \[insert another point\]
+  * \[etc.\]
+* What has not been done?
+  * \[insert point\]
+  * \[insert another point\]
+  * \[etc.\]
+#### Sprint retrospective:
+* What went well?
+  * \[insert point\]
+  * \[insert another point\]
+  * \[etc.\]
+* What did not go as well?
+  * \[insert point\]
+  * \[insert another point\]
+  * \[etc.\]
+* What could be done differently?
+  * \[insert point\]
+  * \[insert another point\]
+  * \[etc.\]
+#### Sprint 2: \[number\] minutes
+#### Scrum master: Colette
+#### Sprint review:
+* What has been done?
+  * \[insert point\]
+  * \[insert another point\]
+  * \[etc.\]
+* What has not been done?
+  * \[insert point\]
+  * \[insert another point\]
+  * \[etc.\]
+#### Sprint retrospective:
+* What went well?
+  * We worked well as a team and were able to cleanly split the workload when needed.
+  * We planned the project (in terms of classes, methods and file structure) very carefully.
+  * We all had a really fun day.
+* What did not go as well?
+  * We did not timebox carefully.
+* What could be done differently?
+  * We could plan our time better.
+  * We could assign more specific roles.
+  * We could prioritise user stories.
+  * We need to more specifically define our DoD.
