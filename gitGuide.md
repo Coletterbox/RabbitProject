@@ -3,8 +3,8 @@
 ![](https://media.giphy.com/media/kswZdQQQV7pAc/giphy.gif)
 
 1. Open Command Prompt.
-1. Navigate to where you want your project to be.
-1. Clone the existing repository.
+2. Navigate to where you want your project to be.
+3. Clone the existing repository.
   ```
   git clone https://github.com/Coletterbox/RabbitProject.git
   ```
@@ -30,7 +30,7 @@
   git commit -m "[commit message]"
   ```
 10. If you forget to add a commit message, you can exit Vim by typing ":wq" at the bottom and pressing enter.
-1. Push your changes.
+11. Push your changes.
   ```
   git push origin [branch name]
   ```
