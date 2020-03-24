@@ -22,45 +22,14 @@
 ![](https://www.quickscrum.com/Images/article_detail/scrum-retrospective-meeting.png)
 
 ----
-
-#### Day 1, Sprint 1: \[number\] minutes
-#### Scrum master: Alfonso
-#### Sprint review:
-* What has been done?
-  * \[insert point\]
-  * \[insert another point\]
-  * \[etc.\]
-* What has not been done?
-  * \[insert point\]
-  * \[insert another point\]
-  * \[etc.\]
-#### Sprint retrospective:
-* What went well?
-  * \[insert point\]
-  * \[insert another point\]
-  * \[etc.\]
-* What did not go as well?
-  * \[insert point\]
-  * \[insert another point\]
-  * \[etc.\]
-* What could be done differently?
-  * \[insert point\]
-  * \[insert another point\]
-  * \[etc.\]
-  
-----
  
-#### Day 1, Sprint 2: \[number\] minutes
-#### Scrum master: Colette
+#### Day 1, Sprint 1: 90 minutes
+#### Scrum master: Colette & Alonso
 #### Sprint review:
 * What has been done?
-  * \[insert point\]
-  * \[insert another point\]
-  * \[etc.\]
-* What has not been done?
-  * \[insert point\]
-  * \[insert another point\]
-  * \[etc.\]
+  * UML Diagrams
+  * Initialised git repository
+  * Planned class structure
 #### Sprint retrospective:
 * What went well?
   * We worked well as a team and were able to cleanly split the workload when needed.
