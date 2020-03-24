@@ -4,7 +4,6 @@ public interface RabbitInterface {
 
     boolean isMature();
     void incrementAge();
-
-
+    void ripRabbit();
 
 }
