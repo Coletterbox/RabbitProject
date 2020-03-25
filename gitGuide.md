@@ -75,6 +75,10 @@
   ```
   git branch -a
   ```
+  * You may have an old version of the repo that doesn't have the branch. Pull the most recent version.
+  ```
+  git pull
+  ```
 * "What if I have changes that I don't want to commit, but I want a clean working tree?"
   * You can stash changes, and an upside of this is that it doesn't actually delete them.
   ```
