@@ -109,3 +109,28 @@
   * Not enough Tests where made 
 * What could be done differently?
   * Mokito could have been applied to do some tests
+  
+  ----
+ 
+#### Day 3, Sprint 5: 120 mins 
+#### Scrum master: Phil
+#### Sprint review:
+* What has been done?
+  * We can test methods for object version bunny breeding (L,S,C)
+  * Have a working version of a non Object version of bunny breeding (A,J,P)
+  * Have working input for months run (T)
+  * Have Visual Aspects of Display Completed (T)
+  * Have improved the Git Readme To include more safety measures (C)
+  
+#### Sprint retrospective:
+* What went well?
+  * Non Object version works well 
+  * Object Version Works but runs into heap issue eventually
+  * GitGuide is clearer
+  * Output Display is clear and looks good
+* What did not go as well?
+  * Not enough Tests
+  * Still have Git issues
+* What could be done differently?
+  * Write more tests for non Object versions
+  * Spend too much time looking at other peoples code
