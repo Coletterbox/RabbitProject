@@ -6,13 +6,13 @@ import com.sparta.team.model.MaleRabbit;
 import com.sparta.team.model.Rabbit;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 public class WorldSimulation {
 
-    private List<MaleRabbit> maleRabbits = new ArrayList();
-    private List<FemaleRabbit> femaleRabbits = new ArrayList();
+    private List<Rabbit> maleRabbits = new ArrayList();
+    private List<Rabbit> femaleRabbits = new ArrayList();
 
     private int maleRabbitsLived = 0;
     private int femaleRabbitsLived = 0;
@@ -43,60 +43,66 @@ public class WorldSimulation {
             3. if there is a male rabbit that is mature and a female rabbit that is mature, get the female rabbit pregnant
             4. if there is a female rabbit that is ready to give birth, add those new rabbits
          */
-        boolean maleRabbitMature = false;
+        updateAge(maleRabbits);
+        updateAge(femaleRabbits);
 
-        List<MaleRabbit> toRemoveMales = new ArrayList<>();
+        giveBirthAllFemales(maleRabbits, femaleRabbits);
+    }
 
-        for (MaleRabbit r : maleRabbits) {
+    private List<Rabbit> updateAge(List<Rabbit> rabbits) {
+        List<Rabbit> toRemove = new ArrayList<>();
+
+        for (Rabbit r : rabbits) {
             r.incrementAge();
             if (!r.isAlive()) {
-//                removeDeadRabbit(r);
-                toRemoveMales.add(r);
+                toRemove.add(r);
                 continue;
             }
-            if (r.isMature()) {
-                maleRabbitMature = true;
-            }
         }
-        maleRabbits.removeAll(toRemoveMales);
+        rabbits.removeAll(toRemove);
+        return rabbits;
+    }
 
-        List<FemaleRabbit> toRemoveFemales = new ArrayList<>();
+    private void giveBirthAllFemales(List<Rabbit> maleRabbits, List<Rabbit> femaleRabbits) {
         List<Rabbit> toAddRabbits = new ArrayList<>();
+        FemaleRabbit dummyFemale = new FemaleRabbit();
 
-        for (FemaleRabbit r : femaleRabbits) {
-            r.incrementAge();
-            if (!r.isAlive()) {
-//                removeDeadRabbit(r);
-                toRemoveFemales.add(r);
-                continue;
-            }
-            //this implementation only works for 1 month long pregnancies
-            if (r.isPregnant()) {
-//                addNewRabbits(r.giveBirth());
-                toAddRabbits.addAll(r.giveBirth());
-            } else if (maleRabbitMature && r.isMature()) {
-                r.setPregnant(true);
+        int maleIndex = 0;
+        int femaleIndex = 0;
+        Random random = new Random();
+
+        while (maleIndex < maleRabbits.size() && femaleIndex < femaleRabbits.size()) {
+            if (!(maleRabbits.get(maleIndex).isMature())) {
+                maleIndex++;
+            } else if (!(femaleRabbits.get(femaleIndex).isMature())) {
+                femaleIndex++;
+            } else {
+                if (random.nextBoolean()) {
+//                    femaleRabbit.setPregnant(true);
+                    toAddRabbits.addAll(dummyFemale.giveBirth());
+                }
+                maleIndex++;
+                femaleIndex++;
             }
         }
-        femaleRabbits.removeAll(toRemoveFemales);
         addNewRabbits(toAddRabbits);
     }
 
-    private void removeDeadRabbit(Rabbit r) {
-        if (r instanceof MaleRabbit) {
-            maleRabbits.remove(r);
-        } else {
-            femaleRabbits.remove(r);
-        }
-    }
+//    private void removeDeadRabbit(Rabbit r) {
+//        if (r instanceof MaleRabbit) {
+//            maleRabbits.remove(r);
+//        } else {
+//            femaleRabbits.remove(r);
+//        }
+//    }
 
     private void addNewRabbits(List<Rabbit> rabbitList) {
         for (Rabbit r : rabbitList) {
             if (r instanceof MaleRabbit) {
-                maleRabbits.add((MaleRabbit) r);
+                maleRabbits.add(r);
                 maleRabbitsLived++;
             } else {
-                femaleRabbits.add((FemaleRabbit) r);
+                femaleRabbits.add(r);
                 femaleRabbitsLived++;
             }
         }
