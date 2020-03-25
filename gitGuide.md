@@ -57,6 +57,29 @@
 
 ----
 
-### Section 2: Common problems people have encountered on this project so far
+### Section 2: Help! :'(
+
+* "It's saying I've changed files that I haven't."
+  * Try "git diff" to see the changes. That will shed some light on whether it's just your linter (if you have one), or if maybe you didn't merge some changes that you thought you did, etc.
+  ```
+  git diff
+  ```
+* "Why does it keep saying I've changed RabbitProject.iml?"
+  * I don't know.
+* "Why can't I see the branches I expect to see?"
+  * You may be looking at local branches specifically. This is the command to also see remote branches:
+  ```
+  git branch -a
+  ```
+* "What if I have changes that I don't want to commit, but I want a clean working tree?"
+  * You can stash changes, and an upside of this is that it doesn't actually delete them.
+  ```
+  git stash
+  ```
+
+----
+
+### Section 3: Common problems people have encountered on this project so far
+#### This is kind of like the above section, but more specific to our experiences...
 
 * Sometimes it's really easy to miss that the command line is telling you that it has run into a problem. The text will be calm and white, but it will (for example) be telling you that the merge you just attempted actually failed, so when you next start the process of adding and committing, it will tell you that a whole bunch of files have changed, and you won't know why. That's why we have to be super careful about reading what the terminal says! :)
