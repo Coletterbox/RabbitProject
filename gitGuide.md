@@ -80,6 +80,11 @@
   ```
   git stash
   ```
+* "I accidentally staged a file that I didn't mean to."
+  * To remove a file from the staging area:
+  ```
+  git reset [file name]
+  ```
 * "Where did \[person\] go?!"
   * They're probably peeing, but try sending another message in all caps this time.
 
