@@ -1,10 +1,7 @@
 package com.sparta.team.manager;
 
-import com.sparta.team.model.FemaleRabbit;
-import com.sparta.team.model.MaleRabbit;
-import com.sparta.team.model.Rabbit;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -13,33 +10,44 @@ public class MatrixSimulation {
 
 
     private List<Long> femaleRabbitsByAge = new ArrayList<>();
+    private List<Long> maleRabbitsByAge = new ArrayList<>();
+
+    private final int RABBITMATURITY = 3;
 
 
-    private int maleRabbitsLived = 0;
-    private int femaleRabbitsLived = 0;
+    private long maleRabbitsLived = 0;
+    private long femaleRabbitsLived = 0;
 
-    private boolean fertileMaleAvailable = false;
+    private long maleRabbitAlive = 0;
+    private long femaleRabbitsAlive = 0;
+
 
 
     public void startSimulation(){
 
-        int numberOfMonths = 20;
-        int rabbitLifespan = 10;
+        int numberOfMonths = 120;
+        int rabbitLifespan = 5;
 
-        femaleRabbitsByAge = new ArrayList<>(10);
+        femaleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
+        maleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
+
+        femaleRabbitsByAge.set(0, 1l);
+        maleRabbitsByAge.set(0, 1l);
+        femaleRabbitsLived++;
+        maleRabbitsLived++;
+
+
+
 
         //flow of time
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < numberOfMonths; i++){
 
-            //BIG ASSUMPTION FOR NOW !!!! DANGER
-            //TODO
-            if(i == 3) fertileMaleAvailable = true;
 
             update();
 
-
-
-
+            System.out.println("Generation " + i);
+            System.out.println(femaleRabbitsLived);
+            System.out.println(maleRabbitsLived);
         }
     }
 
@@ -47,35 +55,105 @@ public class MatrixSimulation {
 
     public void update(){
 
-        //FOLLOW THE WHITE RABBIT
-//        femaleRabbitsByAge.add(0, 9812639812l);
-//        femaleRabbitsByAge.remove(rabbitLifespan-1);
 
+        long numberOfCouples = getRabbitCouples();
+        ageRabbits();
+        generateNewGeneration(numberOfCouples);
+        removeDeadRabbits();
 
 
 
     }
 
 
+    public long getRabbitCouples(){
 
-    public int getNewFemaleGeneration(){
-        int newFemaleGeneration =  0;
-        Random random = new Random();
-        int numberOfRabbits = random.nextInt(14) + 1;
+        long numberOfMatureFemaleRabbits = 0;
+        long numberOfMatureMaleRabbits = 0;
 
-        for (int i = 0; i < numberOfRabbits; i++) {
-            int gender = (int) (Math.random() * 2);
-            if (gender == 2) gender = 1;
-            if (gender == 0) { // IF GENDER IS 0 THEN FEMALE, GENDER IS 1 THEN MALE
-                newFemaleGeneration++;
-                femaleRabbitsLived++;
-            } else {
-                maleRabbitsLived++;
-            }
+        // add up all the values between index 3 and the last index
+        for(int i = RABBITMATURITY; i < femaleRabbitsByAge.size(); i++){
+            numberOfMatureFemaleRabbits += femaleRabbitsByAge.get(i);
+            numberOfMatureMaleRabbits += maleRabbitsByAge.get(i);
         }
 
-        return newFemaleGeneration;
+        long numberOfCouples = 0;
+
+        //determine how many times we have to breed
+        if(numberOfMatureFemaleRabbits < numberOfMatureMaleRabbits){
+            numberOfCouples = numberOfMatureFemaleRabbits;
+        }
+        else{
+            numberOfCouples = numberOfMatureMaleRabbits;
+        }
+
+
+        return numberOfCouples;
     }
+
+
+
+
+
+
+    public void ageRabbits(){
+        femaleRabbitsByAge.add(0, 0l);
+        maleRabbitsByAge.add(0, 0l);
+    }
+
+
+
+
+
+
+    public void generateNewGeneration(long numberOfCouples)
+    {
+        long newFemaleGeneration =  0;
+        long newMaleGeneration = 0;
+
+        Random random = new Random();
+        int numberOfNewRabbits = random.nextInt(14) + 1;
+
+        boolean coupleSuccess;
+
+        //iterate over all the rabbit couples
+        for(int i = 0; i < numberOfCouples; i++) {
+            //will the couple be successful?
+            coupleSuccess = random.nextBoolean();
+            if(coupleSuccess) {
+                //one couple makes new rabbits
+                for (int j = 0; j < numberOfNewRabbits; j++) {
+
+                    boolean isFemale = random.nextBoolean();
+
+                    if (isFemale) {
+                        newFemaleGeneration++;
+                        femaleRabbitsLived++;
+                    } else {
+                        newMaleGeneration++;
+                        maleRabbitsLived++;
+                    }
+                }
+            }
+
+        }
+
+        femaleRabbitsByAge.set(0,newFemaleGeneration);
+        maleRabbitsByAge.set(0,newMaleGeneration);
+
+    }
+
+
+
+
+
+
+    public void removeDeadRabbits(){
+        femaleRabbitsByAge.remove(femaleRabbitsByAge.size()-1);
+        maleRabbitsByAge.remove(maleRabbitsByAge.size()-1);
+    }
+
+
 
 
 
