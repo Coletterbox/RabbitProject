@@ -10,6 +10,6 @@ public class Starter {
         UserInput userInput = new UserInput();
         MatrixSimulation matrixSimulation = new MatrixSimulation();
         int type = userInput.getTerminalOutputForResultType();
-        matrixSimulation.startSimulation(60, type);
+        matrixSimulation.startSimulation(40, type);
     }
 }
