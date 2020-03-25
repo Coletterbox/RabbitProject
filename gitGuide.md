@@ -12,36 +12,39 @@
   ```
   cd RabbitProject
   ```
-5. Switch to the branch you want to work on. (See below for details.)
+5. If you want to see the local branches:
+  ```
+  git branch
+  ```
+Or if you want to see all branches, including remote:
+  ```
+  git branch -a
+  ```
+6. If the branch you want to work on already exists, switch to it.
   ```
   git checkout [branch name]
   ```
-6. Work on your code! :)
-7. Check the status if you want to see which files have been changed.
+  Or create a new branch and switch to it.
+  ```
+  git checkout -b [branch name]
+  ```
+7. Work on your code! :)
+8. Check the status if you want to see which files have been changed.
   ```
   git status
   ```
-8. Add the files you've changed to the staging area.
+9. Add the files you've changed to the staging area.
   ```
   git add [file name]
   ```
-9. Commit your changes (don't forget to add a commit message)!
+10. Commit your changes (don't forget to add a commit message)!
   ```
   git commit -m "[commit message]"
   ```
-10. If you forget to add a commit message, you can exit Vim by typing ":wq" at the bottom and pressing enter.
-11. Push your changes.
+11. If you forget to add a commit message, you can exit Vim by typing ":wq" at the bottom and pressing enter.
+12. Push your changes.
   ```
   git push origin [branch name]
   ```
   
 ![](https://media.giphy.com/media/47D5dzXraWsldmlx9F/giphy.gif)
-
-* If you want to see the local branches:
-  ```
-  git branch
-  ```
-* If you want to see all branches, including remote:
-  ```
-  git branch -a
-  ```
