@@ -8,52 +8,54 @@ import java.io.*;
 
 public class DisplayManager implements DisplayManagerInterface {
 
-    static final String LOG_PROPERTIES_FILE_RESULTS = "resources/log4jResults.properties";
-    static Logger log = Logger.getLogger(DisplayManager.class.getName());
+    //static final String LOG_PROPERTIES_FILE_RESULTS = "resources/log4jResults.properties";
+    //static Logger log = Logger.getLogger(DisplayManager.class.getName());
 
-    long aliveM = 0;
-    long aliveF = 0;
-    int type;
+    private long aliveM = 0;
+    private long aliveF = 0;
+    private int type;
+    private Writer writer = null;
 
     public DisplayManager(int type){
         this.type = type;
-        initialiseLogging();
+       // initialiseLogging();
+        initialWriter();
     }
 
-    public static void initialiseLogging() {
-        PropertyConfigurator.configure(LOG_PROPERTIES_FILE_RESULTS);
-    }
+//    public static void initialiseLogging() {
+//        PropertyConfigurator.configure(LOG_PROPERTIES_FILE_RESULTS);
+//    }
 
     @Override
     public void displayTimeElapsed(int time) {
         if (type == 1){
-            log.debug("_                                                _");
-            log.debug("____________Month " + time + " Results____________");
+            writeToFile("_                                                _");
+            writeToFile("____________Month " + time + " Results____________");
         }else{
-            log.debug("_                                                _");
-            log.debug("______________Simulation End Results______________");
+            writeToFile("_                                                _");
+            writeToFile("______________Simulation End Results______________");
         }
-        log.debug("Simulation running for [" + (time/12)+ " years " + (time%12) + " months]");
+        writeToFile("Simulation running for [" + (time/12)+ " years " + (time%12) + " months]");
     }
 
     @Override
     public void displayMaleRabbitsAlive(long rabbits) {
-        log.debug("Male rabbits alive ["+ rabbits+"]");
+        writeToFile("Male rabbits alive ["+ rabbits+"]");
     }
 
     @Override
     public void displayFemaleRabbitsAlive(long rabbits) {
-        log.debug("Female rabbits alive ["+ rabbits+"]");
+        writeToFile("Female rabbits alive ["+ rabbits+"]");
     }
 
     @Override
     public void displayMaleRabbitsLived(long rabbits) {
-        log.debug("Male rabbits lived ["+ rabbits +"] has died ["+(rabbits-aliveM)+"]");
+        writeToFile("Male rabbits lived ["+ rabbits +"] has died ["+(rabbits-aliveM)+"]");
     }
 
     @Override
     public void displayFemaleRabbitsLived(long rabbits) {
-        log.debug("Female rabbits lived ["+ rabbits +"] has died ["+(rabbits-aliveF)+"]");
+        writeToFile("Female rabbits lived ["+ rabbits +"] has died ["+(rabbits-aliveF)+"]");
     }
 
     @Override
@@ -62,8 +64,8 @@ public class DisplayManager implements DisplayManagerInterface {
         displayFemaleRabbitsLived(femaleRabbits);
         if( type==2) {
             System.out.println("Please check results file for results.");
-            log.debug("______________Simulation Finished______________");
-            log.debug("_                                             _");
+            writeToFile("______________Simulation Finished______________");
+            writeToFile("_                                             _");
         }
     }
 
@@ -74,17 +76,27 @@ public class DisplayManager implements DisplayManagerInterface {
         displayMaleRabbitsAlive(maleRabbits);
         displayFemaleRabbitsAlive(femaleRabbits);
     }
-    private void writeResultToFile(){//Not completed
-        Writer writer = null;
+    private void initialWriter(){
         try {
             writer = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream("SimulationResults.txt"), "utf-8"));
-            writer.write("Something");
         } catch (IOException ex) {
             // Report log please
-        } finally {
-            try {writer.close();
-            } catch (Exception ex) {/*ignore*/}
+        }
+    }
+    private void writeToFile(String line){
+        try {
+            writer.write(line+"\n");
+        } catch (IOException e) {
+            e.printStackTrace(); //log
+        }
+    }
+
+    public void writerClose(){
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace(); //log
         }
     }
 }

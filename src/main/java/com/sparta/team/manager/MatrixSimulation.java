@@ -33,7 +33,7 @@ public class MatrixSimulation {
 
         initialiseLogging();
         populateInitialGeneration();
-
+        DisplayManager displayManager = new DisplayManager(displayOutputType);
 
 
 
@@ -52,7 +52,6 @@ public class MatrixSimulation {
 
 
             if(displayOutputType == 1){
-                DisplayManager displayManager = new DisplayManager(displayOutputType);
                 displayManager.displayTimeElapsed(i);
                 displayManager.displayRabbitsAlive(maleRabbitsAlive, femaleRabbitsAlive);
                 displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
@@ -60,12 +59,11 @@ public class MatrixSimulation {
         }
 
         if(displayOutputType == 2){
-            DisplayManager displayManager = new DisplayManager(displayOutputType);
             displayManager.displayTimeElapsed(numberOfMonths);
             displayManager.displayRabbitsAlive(maleRabbitsAlive, femaleRabbitsAlive);
             displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
         }
-
+        displayManager.writerClose();
     }
 
 
