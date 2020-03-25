@@ -116,7 +116,8 @@
 #### Scrum master: Phil
 #### Sprint review:
 * What has been done?
-  * We can test methods for object version bunny breeding (L,S,C)
+  * We began work on an alternative Object based version of bunny breeding being done in parallel with the Non Object Version to give us     more options in future (L,S,C)
+  * We can test methods for the object version bunny breeding (L,S,C)
   * Have a working version of a non Object version of bunny breeding (A,J,P)
   * Have working input for months run (T)
   * Have Visual Aspects of Display Completed (T)
