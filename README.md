@@ -164,7 +164,7 @@
   
    ----
  
-#### Day 3, Sprint 8: 45 mins 
+#### Day 3, Sprint 8: 90 mins 
 #### Scrum master: Sebastian
 #### Sprint review:
 * What has been done?
