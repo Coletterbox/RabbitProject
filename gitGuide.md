@@ -8,8 +8,8 @@
 
 ### Contents
 #### [Section 1: A brief walkthrough of a sequence of events](#section-1-a-brief-walkthrough-of-a-sequence-of-events)
-#### [Section 2: Help! :'( (And FAQ)](#section-2-help--and-faq)
-#### [Section 3: Common problems people have encountered on this project so far](#section-3-common-problems-people-have-encountered-on-this-project-so-far)
+#### [Section 2: Help! :'( (And FAQ)](#section-2-help--and-faq-1)
+#### [Section 3: Common problems people have encountered on this project so far](#section-3-common-problems-people-have-encountered-on-this-project-so-far-1)
 
 ----
 
