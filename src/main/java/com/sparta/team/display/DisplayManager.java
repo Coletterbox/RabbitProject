@@ -62,11 +62,7 @@ public class DisplayManager implements DisplayManagerInterface {
     public void displayRabbitsLived(long maleRabbits, long femaleRabbits) {
         displayMaleRabbitsLived(maleRabbits);
         displayFemaleRabbitsLived(femaleRabbits);
-        if( type==2) {
-            System.out.println("Please check results file for results.");
-            writeToFile("______________Simulation Finished______________");
-            writeToFile("_                                             _");
-        }
+
     }
 
     @Override
@@ -93,10 +89,14 @@ public class DisplayManager implements DisplayManagerInterface {
     }
 
     public void writerClose(){
+        System.out.println("Please check results file for results.");
+        writeToFile("______________Simulation Finished______________");
+        writeToFile("_                                             _");
         try {
             writer.close();
         } catch (IOException e) {
             e.printStackTrace(); //log
         }
+
     }
 }
