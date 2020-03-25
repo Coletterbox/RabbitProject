@@ -117,10 +117,10 @@
 #### Sprint review:
 * What has been done?
   * We began work on an alternative Object based version of bunny breeding being done in parallel with the Non Object Version to give us     more options in future (L,S,C)
-  * We can test methods for the object version bunny breeding (L,S,C)
-  * Have a working version of a non Object version of bunny breeding (A,J,P)
-  * Have working input for months run (T)
-  * Have Visual Aspects of Display Completed (T)
+  * We can test methods for the object version of bunny breeding (L,S,C)
+  * Have a working version of a non Object version of bunny breeding that needs testing (A,J,P)
+  * Have working input for months to be run (T)
+  * Have Visual elements of Display Completed (T)
   * Have improved the Git Readme To include more safety measures (C)
   
 #### Sprint retrospective:
