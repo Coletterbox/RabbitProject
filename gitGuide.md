@@ -2,7 +2,7 @@
 
 ## Please let me know if anything is still confusing, or if this sequence of events isn't the most helpful.
 
-![](https://media.giphy.com/media/kswZdQQQV7pAc/giphy.gif)
+![This is me and you.](https://media.giphy.com/media/kswZdQQQV7pAc/giphy.gif)
 
 ----
 
@@ -53,7 +53,7 @@
   git push origin [branch name]
   ```
   
-![](https://media.giphy.com/media/47D5dzXraWsldmlx9F/giphy.gif)
+![Final Space was only okay.](https://media.giphy.com/media/47D5dzXraWsldmlx9F/giphy.gif)
 
 ----
 
@@ -82,6 +82,8 @@
   ```
 * "Where did \[person\] go?!"
   * They're probably peeing, but try sending another message in all caps this time.
+
+![It's okay, friend. <3](https://media.giphy.com/media/gl8ymnpv4Sqha/giphy.gif)
 
 ----
 
