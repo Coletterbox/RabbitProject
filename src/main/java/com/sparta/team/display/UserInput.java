@@ -7,7 +7,7 @@ public class UserInput {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public String getTerminalOutputMethod() {
+    public int getTerminalOutputForResultType() {
         String type1 = "1";
         String type2 = "2";
         System.out.println("Pick your simulations result format:");
@@ -16,8 +16,8 @@ public class UserInput {
 
         String resType = scanner.nextLine();
         if (!resType.equals(type1) && !resType.equals(type2)) {
-            getTerminalOutputMethod();
+            getTerminalOutputForResultType();
         }
-        return resType;
+        return Integer.parseInt(resType);
     }
 }
