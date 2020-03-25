@@ -1,3 +1,7 @@
+**NOTE: Guys, please stop being afraid to make commits!! You WON'T permanently break anything; that is exactly what version control is supposed to prevent! Pretty much the only thing that would be irreversible would be if you lost your work WITHOUT committing it. Or if we nuked the remote repo, so PHIL, WE ARE NOT DOING THAT. >:(**
+
+----
+
 **NOTE: Please feel free to use the readme as a sandbox if you need to test Git things! :)**
 
 ----
