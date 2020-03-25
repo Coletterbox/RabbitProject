@@ -16,9 +16,9 @@ public class DisplayManager implements DisplayManagerInterface {
     private int type;
     private Writer writer = null;
 
-    public DisplayManager(int type){
+    public DisplayManager(int type) {
         this.type = type;
-       // initialiseLogging();
+        // initialiseLogging();
         initialWriter();
     }
 
@@ -28,41 +28,40 @@ public class DisplayManager implements DisplayManagerInterface {
 
     @Override
     public void displayTimeElapsed(int time) {
-        if (type == 1){
+        if (type == 1) {
             writeToFile("_                                                _");
             writeToFile("____________Month " + time + " Results____________");
-        }else{
+        } else {
             writeToFile("_                                                _");
             writeToFile("______________Simulation End Results______________");
         }
-        writeToFile("Simulation running for [" + (time/12)+ " years " + (time%12) + " months]");
+        writeToFile("Simulation running for [" + (time / 12) + " years " + (time % 12) + " months]");
     }
 
     @Override
     public void displayMaleRabbitsAlive(long rabbits) {
-        writeToFile("Male rabbits alive ["+ rabbits+"]");
+        writeToFile("Male rabbits alive [" + rabbits + "]");
     }
 
     @Override
     public void displayFemaleRabbitsAlive(long rabbits) {
-        writeToFile("Female rabbits alive ["+ rabbits+"]");
+        writeToFile("Female rabbits alive [" + rabbits + "]");
     }
 
     @Override
     public void displayMaleRabbitsLived(long rabbits) {
-        writeToFile("Male rabbits lived ["+ rabbits +"] has died ["+(rabbits-aliveM)+"]");
+        writeToFile("Male rabbits lived [" + rabbits + "] has died [" + (rabbits - aliveM) + "]");
     }
 
     @Override
     public void displayFemaleRabbitsLived(long rabbits) {
-        writeToFile("Female rabbits lived ["+ rabbits +"] has died ["+(rabbits-aliveF)+"]");
+        writeToFile("Female rabbits lived [" + rabbits + "] has died [" + (rabbits - aliveF) + "]");
     }
 
     @Override
     public void displayRabbitsLived(long maleRabbits, long femaleRabbits) {
         displayMaleRabbitsLived(maleRabbits);
         displayFemaleRabbitsLived(femaleRabbits);
-
     }
 
     @Override
@@ -72,7 +71,8 @@ public class DisplayManager implements DisplayManagerInterface {
         displayMaleRabbitsAlive(maleRabbits);
         displayFemaleRabbitsAlive(femaleRabbits);
     }
-    private void initialWriter(){
+
+    private void initialWriter() {
         try {
             writer = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream("SimulationResults.txt"), "utf-8"));
@@ -80,23 +80,23 @@ public class DisplayManager implements DisplayManagerInterface {
             // Report log please
         }
     }
-    private void writeToFile(String line){
+
+    private void writeToFile(String line) {
         try {
-            writer.write(line+"\n");
+            writer.write(line + "\n");
         } catch (IOException e) {
-            e.printStackTrace(); //log
+            e.printStackTrace(); // Report log please
         }
     }
 
-    public void writerClose(){
+    public void writerClose() {
         System.out.println("Please check results file for results.");
         writeToFile("______________Simulation Finished______________");
         writeToFile("_                                             _");
         try {
             writer.close();
         } catch (IOException e) {
-            e.printStackTrace(); //log
+            e.printStackTrace(); // Report log please
         }
-
     }
 }

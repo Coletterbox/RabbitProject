@@ -10,9 +10,9 @@ public class UserInput {
     public int getTerminalOutputForResultType() {
         String type1 = "1";
         String type2 = "2";
-        System.out.println("Pick your simulations result format:");
-        System.out.println(type1 + ". Monthly");
-        System.out.println(type2 + ". End of simulation");
+        System.out.println("Pick your simulations result format:\n"
+                + type1 + ". Monthly \n"
+                + type2 + ". End of simulation");
 
         String resType = scanner.nextLine();
         if (!resType.equals(type1) && !resType.equals(type2)) {
