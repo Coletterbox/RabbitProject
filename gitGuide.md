@@ -14,6 +14,7 @@
 ----
 
 ### Section 1: A brief walkthrough of a sequence of events
+#### From cloning the repo to pushing changes...
 
 1. Open Command Prompt.
 2. Navigate to where you want your project to be.
@@ -54,8 +55,8 @@
   ```
   git commit -m "[commit message]"
   ```
-11. If you forget to add a commit message, you can exit Vim by typing ":wq" at the bottom and pressing enter.
-12. Push your changes.
+&nbsp;&nbsp;&nbsp;&nbsp;If you forget to add a commit message, you can exit Vim by typing ":wq" at the bottom and pressing enter.
+11. Push your changes.
   ```
   git push origin [branch name]
   ```
