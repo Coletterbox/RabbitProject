@@ -199,6 +199,7 @@
    * Everyone is now up-to-date with the project
    * Everyone seems happy with working as a team
    * Extra moral support
+   * Found common ground in hating RabbitProject.iml
  * What did not go as well?
    * Git
  * What could be done differently?
