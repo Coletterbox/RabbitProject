@@ -16,7 +16,7 @@
   ```
   git branch
   ```
-Or if you want to see all branches, including remote:
+&nbsp;&nbsp;&nbsp;&nbsp;Or if you want to see all branches, including remote:
   ```
   git branch -a
   ```
@@ -24,7 +24,7 @@ Or if you want to see all branches, including remote:
   ```
   git checkout [branch name]
   ```
-  Or create a new branch and switch to it.
+&nbsp;&nbsp;&nbsp;&nbsp;Or create a new branch and switch to it.
   ```
   git checkout -b [branch name]
   ```
