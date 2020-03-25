@@ -6,6 +6,13 @@
 
 ----
 
+### Contents
+#### [Section 1: A brief walkthrough of a sequence of events](#section-1-a-brief-walkthrough-of-a-sequence-of-events)
+#### [Section 2: Help! :'( (And FAQ)](#section-2-help--and-faq)
+#### [Section 3: Common problems people have encountered on this project so far](#section-3-common-problems-people-have-encountered-on-this-project-so-far)
+
+----
+
 ### Section 1: A brief walkthrough of a sequence of events
 
 1. Open Command Prompt.
@@ -57,7 +64,7 @@
 
 ----
 
-### Section 2: Help! :'(
+### Section 2: Help! :'( (And FAQ)
 
 * "It's saying I've changed files that I haven't."
   * Try "git diff" to see the changes. That will shed some light on whether it's just your linter (if you have one), or if maybe you didn't merge some changes that you thought you did, etc.
