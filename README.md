@@ -135,3 +135,31 @@
 * What could be done differently?
   * Write more tests for non Object versions
   * Spend too much time looking at other peoples code
+  
+   ----
+ 
+#### Day 3, Sprint 6: 45 mins 
+#### Scrum master: Phil
+#### Sprint review:
+* What has been done?
+  * Fixed logic issues in the non Object Version (A, J, P)
+  * Added a log system into the Non Object Version to track stages of the program (A, J, P)
+  * The Object Version is completed with all testing <gets stuck with heap memory issue> (S, L)
+  * Fix Tolga Git Issue (C, T, P)
+  * User Entry Passed all tests
+  * Display now shows when Simulator is done
+  * Large update to GitGuide including FAQ for common issues (C)
+  
+#### Sprint retrospective:
+* What went well?
+  * Now know limitations of Object version of bunny breeding 
+  * Troubleshooting with Git is improving
+  * Less time spent with people looking at other peoples code
+* What did not go as well?
+  * Not enough Time to complete all Tests
+  * Cannot win a fight against the heap limit
+* What could be done differently?
+  * Read the GitGuide to find soloutions more effectivly
+  * Make sure an assigned task has the needed I/O in the program to be worked on
+  
+  
