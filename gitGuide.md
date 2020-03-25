@@ -56,6 +56,7 @@
   git commit -m "[commit message]"
   ```
 &nbsp;&nbsp;&nbsp;&nbsp;If you forget to add a commit message, you can exit Vim by typing ":wq" at the bottom and pressing enter.
+
 11. Push your changes.
   ```
   git push origin [branch name]
