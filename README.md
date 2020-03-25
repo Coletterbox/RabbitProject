@@ -112,7 +112,7 @@
   
   ----
  
-#### Day 3, Sprint 5: 120 mins 
+#### Day 3, Sprint 6: 120 mins 
 #### Scrum master: Phil
 #### Sprint review:
 * What has been done?
@@ -138,7 +138,7 @@
   
    ----
  
-#### Day 3, Sprint 6: 45 mins 
+#### Day 3, Sprint 7: 45 mins 
 #### Scrum master: Phil
 #### Sprint review:
 * What has been done?
@@ -162,4 +162,24 @@
   * Read the GitGuide to find soloutions more effectivly
   * Make sure an assigned task has the needed I/O in the program to be worked on
   
+   ----
+ 
+#### Day 3, Sprint 8: 45 mins 
+#### Scrum master: Sebastian
+#### Sprint review:
+* What has been done?
+  * Merged display with no-object implementation (Alonso, Tolga)
+  * Output to text file (Alonso, Tolga)
+  * Testing done on rabbitCouples, ageRabbit (Colette, Lubnah, Philip, James, Sebastian)
+  * Working artifact approved by product owner
   
+#### Sprint retrospective:
+* What went well?
+  * Progress was achieved in implementing core features
+* What did not go as well?
+  * Poor planning on the scrum master's part
+  * Schedule not respected as git had once again something to say about that
+  * Massive blocker in git not working properly for multiple team members
+* What could be done differently?
+  * Git
+  * Too many people halted testing to solve git issues
