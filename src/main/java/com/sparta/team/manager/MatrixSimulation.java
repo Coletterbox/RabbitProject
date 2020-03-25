@@ -35,9 +35,6 @@ public class MatrixSimulation {
         populateInitialGeneration();
         DisplayManager displayManager = new DisplayManager(displayOutputType);
 
-
-
-
         //flow of time
         for(int i = 0; i < numberOfMonths; i++){
             log.trace("------------------------------");
@@ -203,8 +200,8 @@ public class MatrixSimulation {
 
 
     public void updateAliveRabbits(){
-        int newFemaleRabbitsAlive = 0;
-        int newMaleRabbitsAlive = 0;
+        long newFemaleRabbitsAlive = 0;
+        long newMaleRabbitsAlive = 0;
 
         for(long l : femaleRabbitsByAge){
             newFemaleRabbitsAlive += l;

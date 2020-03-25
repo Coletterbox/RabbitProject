@@ -5,6 +5,7 @@ import com.sparta.team.model.MaleRabbit;
 import com.sparta.team.model.Rabbit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class RabbitTest {
     }
 
     @Test
+    @DisplayName("Successful birth")
     public void testFemalesGiveBirth() {
         for (Rabbit rabbit : rabbits) {
             if (rabbit instanceof FemaleRabbit) {
@@ -36,5 +38,55 @@ public class RabbitTest {
         boolean check = false;
         if (bunnies.size() >= 2 && bunnies.size() <= 28) check = true;
         Assertions.assertEquals(true, check);
+    }
+
+    @Test
+    @DisplayName("Create Male Rabbit")
+    public void createMaleRabbit() {
+        Rabbit maleRabbit = rabbits.get(0);
+        Assertions.assertEquals(true, maleRabbit instanceof MaleRabbit);
+    }
+
+    @Test
+    @DisplayName("Create Female Rabbit")
+    public void createFemaleRabbit() {
+        Rabbit femaleRabbit = rabbits.get(2);
+        Assertions.assertEquals(true, femaleRabbit instanceof FemaleRabbit);
+    }
+
+//    @Test
+//    @DisplayName("Increase rabbit age ")
+//    public void incrementedRabbitAge() {
+//        rabbits.get(0).incrementAge();
+//        Assertions.assertEquals(1, rabbits.get(0).getAgeInMonths());
+//    }
+
+    @Test
+    @DisplayName("Mate at Matured age")
+    public void mateAtMaturedAge() {
+        rabbits.get(0).incrementAge();
+        rabbits.get(0).incrementAge();
+        rabbits.get(0).incrementAge();
+        rabbits.get(0).incrementAge();
+        Assertions.assertEquals(true, rabbits.get(0).isMature());
+    }
+
+    @Test
+    @DisplayName("Do not mate at young age")
+    public void notMaturedAge() {
+        rabbits.get(0).incrementAge();
+        rabbits.get(0).incrementAge();
+        Assertions.assertEquals(false, rabbits.get(0).isMature());
+    }
+
+    @Test
+    @DisplayName("Is Pregnant")
+    public void isPregnant() {
+
+    }
+
+    @Test
+    @DisplayName("Is No Longer Pregnant")
+    public void isNotPregnant() {
     }
 }
