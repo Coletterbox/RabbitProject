@@ -64,6 +64,10 @@
   ```
   git diff
   ```
+  * To see changes in files you've already staged:
+  ```
+  git diff --staged
+  ```
 * "Why does it keep saying I've changed RabbitProject.iml?"
   * I don't know.
 * "Why can't I see the branches I expect to see?"
