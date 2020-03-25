@@ -12,7 +12,7 @@
   ```
   cd RabbitProject
   ```
-5. Switch to the branch you want to work on.
+5. Switch to the branch you want to work on. (See below for details.)
   ```
   git checkout [branch name]
   ```
@@ -36,3 +36,12 @@
   ```
   
 ![](https://media.giphy.com/media/47D5dzXraWsldmlx9F/giphy.gif)
+
+* If you want to see the local branches:
+  ```
+  git branch
+  ```
+* If you want to see all branches, including remote:
+  ```
+  git branch -a
+  ```
