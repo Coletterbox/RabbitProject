@@ -1,5 +1,7 @@
 # Guide to using Git/GitHub and (hopefully) not breaking anything!
 
+## Please let me know if anything is still confusing, or if this sequence of events isn't the most helpful.
+
 ![](https://media.giphy.com/media/kswZdQQQV7pAc/giphy.gif)
 
 1. Open Command Prompt.
