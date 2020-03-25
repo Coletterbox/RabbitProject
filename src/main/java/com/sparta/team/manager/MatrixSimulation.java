@@ -15,7 +15,7 @@ public class MatrixSimulation {
 
 
     private final int RABBITMATURITY = 3;
-    private final int RABBITLIFESPAN = 12;
+    private final int RABBITLIFESPAN = 60;
 
     private List<Long> femaleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(RABBITLIFESPAN, 0l));
     private List<Long> maleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(RABBITLIFESPAN, 0l));
