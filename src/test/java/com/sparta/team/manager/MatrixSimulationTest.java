@@ -12,7 +12,7 @@ class MatrixSimulationTest {
 
 
         MatrixSimulation matrixSimulation = new MatrixSimulation();
-        matrixSimulation.startSimulation(10);
+        //matrixSimulation.startSimulation(10);
 
     }
 

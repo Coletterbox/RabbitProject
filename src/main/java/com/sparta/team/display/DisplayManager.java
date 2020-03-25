@@ -5,15 +5,14 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.io.*;
-import java.util.Scanner;
 
 public class DisplayManager implements DisplayManagerInterface {
 
-    static final String LOG_PROPERTIES_FILE = "resources/log4jResults.properties";
+    static final String LOG_PROPERTIES_FILE_RESULTS = "resources/log4jResults.properties";
     static Logger log = Logger.getLogger(DisplayManager.class.getName());
 
-    int aliveM = 0;
-    int aliveF = 0;
+    long aliveM = 0;
+    long aliveF = 0;
     int type;
 
     public DisplayManager(int type){
@@ -22,14 +21,14 @@ public class DisplayManager implements DisplayManagerInterface {
     }
 
     public static void initialiseLogging() {
-        PropertyConfigurator.configure(LOG_PROPERTIES_FILE);
+        PropertyConfigurator.configure(LOG_PROPERTIES_FILE_RESULTS);
     }
 
     @Override
     public void displayTimeElapsed(int time) {
         if (type == 1){
             log.debug("_                                                _");
-            log.debug("____________Simulation Monthly Results____________");
+            log.debug("____________Month " + time + " Results____________");
         }else{
             log.debug("_                                                _");
             log.debug("______________Simulation End Results______________");
@@ -38,36 +37,38 @@ public class DisplayManager implements DisplayManagerInterface {
     }
 
     @Override
-    public void displayMaleRabbitsAlive(int rabbits) {
+    public void displayMaleRabbitsAlive(long rabbits) {
         log.debug("Male rabbits alive ["+ rabbits+"]");
     }
 
     @Override
-    public void displayFemaleRabbitsAlive(int rabbits) {
+    public void displayFemaleRabbitsAlive(long rabbits) {
         log.debug("Female rabbits alive ["+ rabbits+"]");
     }
 
     @Override
-    public void displayMaleRabbitsLived(int rabbits) {
+    public void displayMaleRabbitsLived(long rabbits) {
         log.debug("Male rabbits lived ["+ rabbits +"] has died ["+(rabbits-aliveM)+"]");
     }
 
     @Override
-    public void displayFemaleRabbitsLived(int rabbits) {
+    public void displayFemaleRabbitsLived(long rabbits) {
         log.debug("Female rabbits lived ["+ rabbits +"] has died ["+(rabbits-aliveF)+"]");
     }
 
     @Override
-    public void displayRabbitsLived(int maleRabbits, int femaleRabbits) {
+    public void displayRabbitsLived(long maleRabbits, long femaleRabbits) {
         displayMaleRabbitsLived(maleRabbits);
         displayFemaleRabbitsLived(femaleRabbits);
-        System.out.println("Please check results file for results.");
-        log.debug("______________Simulation Finished______________");
-        log.debug("_                                             _");
+        if( type==2) {
+            System.out.println("Please check results file for results.");
+            log.debug("______________Simulation Finished______________");
+            log.debug("_                                             _");
+        }
     }
 
     @Override
-    public void displayRabbitsAlive(int maleRabbits, int femaleRabbits) {
+    public void displayRabbitsAlive(long maleRabbits, long femaleRabbits) {
         aliveM = maleRabbits;
         aliveF = femaleRabbits;
         displayMaleRabbitsAlive(maleRabbits);

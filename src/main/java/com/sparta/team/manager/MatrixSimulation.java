@@ -1,5 +1,6 @@
 package com.sparta.team.manager;
 
+import com.sparta.team.display.DisplayManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -28,34 +29,50 @@ public class MatrixSimulation {
 
 
 
-    public void startSimulation(int numberOfMonths){
+    public void startSimulation(int numberOfMonths, int displayOutputType){
 
         initialiseLogging();
         populateInitialGeneration();
 
 
 
+
+
         //flow of time
         for(int i = 0; i < numberOfMonths; i++){
-            log.debug("------------------------------");
-            log.debug("Generation " + i + " start");
-            log.debug("---------------");
+            log.trace("------------------------------");
+            log.trace("Generation " + i + " start");
+            log.trace("---------------");
 
             update();
 
-            log.debug("---------------");
-            log.debug("Generation " + i + " end");
-            log.debug("------------------------------");
+            log.trace("---------------");
+            log.trace("Generation " + i + " end");
+            log.trace("------------------------------");
 
 
+            if(displayOutputType == 1){
+                DisplayManager displayManager = new DisplayManager(displayOutputType);
+                displayManager.displayTimeElapsed(i);
+                displayManager.displayRabbitsAlive(maleRabbitsAlive, femaleRabbitsAlive);
+                displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
+            }
         }
+
+        if(displayOutputType == 2){
+            DisplayManager displayManager = new DisplayManager(displayOutputType);
+            displayManager.displayTimeElapsed(numberOfMonths);
+            displayManager.displayRabbitsAlive(maleRabbitsAlive, femaleRabbitsAlive);
+            displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
+        }
+
     }
 
 
 
     public void populateInitialGeneration(){
 
-        log.debug("Adam and Eve added");
+        log.trace("Adam and Eve added");
         femaleRabbitsByAge.set(0, 1l);
         maleRabbitsByAge.set(0, 1l);
 
@@ -67,23 +84,23 @@ public class MatrixSimulation {
 
     public void update(){
 
-        log.debug("Female rabbit population at start: " + femaleRabbitsByAge.toString());
-        log.debug("Male rabbit population at start: " + maleRabbitsByAge.toString());
+        log.trace("Female rabbit population at start: " + femaleRabbitsByAge.toString());
+        log.trace("Male rabbit population at start: " + maleRabbitsByAge.toString());
 
         long numberOfCouples = getRabbitCouples();
-        log.debug("Number of couples available: " + numberOfCouples);
+        log.trace("Number of couples available: " + numberOfCouples);
 
         ageRabbits();
-        log.debug("Female rabbit population after aging: " + femaleRabbitsByAge.toString());
-        log.debug("Male rabbit population after aging: " + maleRabbitsByAge.toString());
+        log.trace("Female rabbit population after aging: " + femaleRabbitsByAge.toString());
+        log.trace("Male rabbit population after aging: " + maleRabbitsByAge.toString());
 
         generateNewGeneration(numberOfCouples);
-        log.debug("Female rabbit population after new population born: " + femaleRabbitsByAge.toString());
-        log.debug("Male rabbit population after new population born: " + maleRabbitsByAge.toString());
+        log.trace("Female rabbit population after new population born: " + femaleRabbitsByAge.toString());
+        log.trace("Male rabbit population after new population born: " + maleRabbitsByAge.toString());
 
         removeDeadRabbits();
-        log.debug("Female rabbit population after funerals: " + femaleRabbitsByAge.toString());
-        log.debug("Male rabbit population after funerals: " + maleRabbitsByAge.toString());
+        log.trace("Female rabbit population after funerals: " + femaleRabbitsByAge.toString());
+        log.trace("Male rabbit population after funerals: " + maleRabbitsByAge.toString());
         updateAliveRabbits();
 
 
@@ -142,19 +159,19 @@ public class MatrixSimulation {
         boolean coupleSuccess;
 
         //iterate over all the rabbit couples
-        log.debug("---------");
+        log.trace("---------");
         for(int i = 0; i < numberOfCouples; i++) {
             //will the couple be successful?
 
-            log.debug("Couple " + i + " trying for kids");
+            log.trace("Couple " + i + " trying for kids");
             coupleSuccess = random.nextBoolean();
-            log.debug("was successful: " + coupleSuccess);
+            log.trace("was successful: " + coupleSuccess);
             if(coupleSuccess) {
                 //one couple makes new rabbits
 
                 //picking number of rabbits
                 numberOfNewRabbits = random.nextInt(14) + 1;
-                log.debug("they had " + numberOfNewRabbits + " kids");
+                log.trace("they had " + numberOfNewRabbits + " kids");
                 for (int j = 0; j < numberOfNewRabbits; j++) {
 
                     boolean isFemale = random.nextBoolean();
@@ -168,9 +185,9 @@ public class MatrixSimulation {
                     }
                 }
             }
-            log.debug("---");
+            log.trace("---");
         }
-        log.debug("---------");
+        log.trace("---------");
 
         femaleRabbitsByAge.set(0,newFemaleGeneration);
         maleRabbitsByAge.set(0,newMaleGeneration);

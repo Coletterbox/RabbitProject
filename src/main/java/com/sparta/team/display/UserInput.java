@@ -19,5 +19,6 @@ public class UserInput {
             getTerminalOutputForResultType();
         }
         return Integer.parseInt(resType);
+
     }
 }

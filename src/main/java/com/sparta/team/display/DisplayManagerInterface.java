@@ -3,13 +3,13 @@ package com.sparta.team.display;
 public interface DisplayManagerInterface {
 
     void displayTimeElapsed(int time);
-    void displayMaleRabbitsLived(int rabbits);
-    void displayFemaleRabbitsLived(int rabbits);
-    void displayRabbitsLived(int maleRabbits, int femaleRabbits);
+    void displayMaleRabbitsLived(long rabbits);
+    void displayFemaleRabbitsLived(long rabbits);
+    void displayRabbitsLived(long maleRabbits, long femaleRabbits);
 
-    void displayMaleRabbitsAlive(int rabbits);
-    void displayFemaleRabbitsAlive(int rabbits);
-    void displayRabbitsAlive(int maleRabbits, int femaleRabbits);
+    void displayMaleRabbitsAlive(long rabbits);
+    void displayFemaleRabbitsAlive(long rabbits);
+    void displayRabbitsAlive(long maleRabbits, long femaleRabbits);
 
 
 }
