@@ -4,6 +4,10 @@
 
 ![](https://media.giphy.com/media/kswZdQQQV7pAc/giphy.gif)
 
+----
+
+### Section 1: A brief walkthrough of a sequence of events
+
 1. Open Command Prompt.
 2. Navigate to where you want your project to be.
 3. Clone the existing repository.
@@ -50,3 +54,9 @@
   ```
   
 ![](https://media.giphy.com/media/47D5dzXraWsldmlx9F/giphy.gif)
+
+----
+
+### Section 2: Common problems people have encountered on this project so far
+
+* Sometimes it's really easy to miss that the command line is telling you that it has run into a problem. The text will be calm and white, but it will (for example) be telling you that the merge you just attempted actually failed, so when you next start the process of adding and committing, it will tell you that a whole bunch of files have changed, and you won't know why. That's why we have to be super careful about reading what the terminal says! :)
