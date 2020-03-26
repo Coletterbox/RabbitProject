@@ -15,26 +15,36 @@ public class WorldSimulation {
     private List<Animal> maleFoxes = new ArrayList();
     private List<Animal> femaleFoxes = new ArrayList();
 
-    private int maleRabbitsLived = 0;
-    private int femaleRabbitsLived = 0;
-    private int maleFoxesLived = 0;
-    private int femaleFoxesLived = 0;
+    private long maleRabbitsLived = 0;
+    private long femaleRabbitsLived = 0;
+    private long maleFoxesLived = 0;
+    private long femaleFoxesLived = 0;
+    private long maleRabbitsEaten = 0;
+    private long femaleRabbitsEaten = 0;
+
+    private int startEatingAt = 1;
+    private int introduceFoxesAt = 8;
 
     public void startSimulation(int numberOfSeconds, int outputType) {
 
         //hardcoded initial population
         maleRabbits.add(new MaleRabbit());
         femaleRabbits.add(new FemaleRabbit());
-        maleFoxes.add(new MaleFox());
-        femaleFoxes.add(new FemaleFox());
         maleRabbitsLived++;
         femaleRabbitsLived++;
-        maleFoxesLived++;
-        femaleFoxesLived++;
         DisplayManager displayManager = new DisplayManager(outputType);
 
         for (int i = 0; i < numberOfSeconds; i++) {
             update();
+            if (i == introduceFoxesAt) {
+                maleFoxes.add(new MaleFox());
+                femaleFoxes.add(new FemaleFox());
+                maleFoxesLived++;
+                femaleFoxesLived++;
+            }
+            if (i > introduceFoxesAt) {
+                updateFoxes();
+            }
             if (outputType == 1) {
                 displayManager.displayTimeElapsed(i);
                 displayManager.displayRabbitsAlive(maleRabbits.size(), femaleRabbits.size());
@@ -65,12 +75,12 @@ public class WorldSimulation {
          */
         updateAge(maleRabbits);
         updateAge(femaleRabbits);
+        giveBirthAllFemales(maleRabbits, femaleRabbits);
+    }
+    private void updateFoxes() {
         updateAge(maleFoxes);
         updateAge(femaleFoxes);
-
-        giveBirthAllFemales(maleRabbits, femaleRabbits);
-
-
+        foxesEatRabbits();
         giveBirthAllFemales(maleFoxes, femaleFoxes);
     }
 
@@ -90,13 +100,6 @@ public class WorldSimulation {
 
     private void giveBirthAllFemales(List<Animal> males, List<Animal> females) {
         List<Animal> toAddAnimals = new ArrayList<>();
-        //females = (List<Female>) females;
-        FemaleAnimal dummyFemaleAnimal;
-        if (females.get(0) instanceof FemaleRabbit) {
-            dummyFemaleAnimal = new FemaleRabbit();
-        } else {
-            dummyFemaleAnimal = new FemaleFox();
-        }
         int maleIndex = 0;
         int femaleIndex = 0;
         Random random = new Random();
@@ -109,32 +112,16 @@ public class WorldSimulation {
                 femaleIndex++;
             } else {
                 if (random.nextBoolean()) {
-//                    femaleRabbit.setPregnant(true);
-                    toAddAnimals.addAll((Collection<? extends Animal>) dummyFemaleAnimal.giveBirth());
+                    toAddAnimals.addAll((Collection<? extends Animal>) femaleAnimal.giveBirth());
                 }
                 maleIndex++;
                 femaleIndex++;
             }
         }
-        addNewRabbits(toAddAnimals);
+        addNewAnimals(toAddAnimals);
     }
 
-    private boolean checkFoxPregnant(FemaleFox fox) {
-        if (fox.isPregnant()) {
-            return true;
-        }
-        return false;
-    }
-
-//    private void removeDeadRabbit(Rabbit r) {
-//        if (r instanceof MaleRabbit) {
-//            maleRabbits.remove(r);
-//        } else {
-//            femaleRabbits.remove(r);
-//        }
-//    }
-
-    private void addNewRabbits(List<? extends Animal> listOfAnimals) {
+    private void addNewAnimals(List<? extends Animal> listOfAnimals) {
         for (Animal animal : listOfAnimals) {
             if (animal instanceof MaleRabbit) {
                 maleRabbits.add(animal);
@@ -148,6 +135,39 @@ public class WorldSimulation {
             } else if (animal instanceof FemaleFox) {
                 femaleFoxes.add(animal);
                 femaleFoxesLived++;
+            }
+        }
+    }
+
+    private void foxesEatRabbits() {
+//        List<Rabbit> allRabbits = new ArrayList<>();
+//        allRabbits.addAll(maleRabbits);
+//        allRabbits.addAll(femaleRabbits);
+        List<Animal> allFoxes = new ArrayList<>();
+        allFoxes.addAll(maleFoxes);
+        allFoxes.addAll(femaleFoxes);
+        int randomElement;
+//        List<Rabbit> toRemove = new ArrayList<>();
+
+        for (Animal fox : allFoxes) {
+            if (fox.getAgeInMonths() >= startEatingAt) {
+                Random random = new Random();
+                int numberOfRabbitsEaten = random.nextInt(20) + 1;
+                for (int i = 0; i < numberOfRabbitsEaten; i++) {
+                    if (random.nextBoolean()) {
+                        randomElement = (int) ((Math.random() * (femaleRabbits.size() - 1)));
+                        if (femaleRabbits.size() > randomElement) {
+                            femaleRabbits.remove(randomElement);
+                            femaleRabbitsEaten++;
+                        }
+                    } else {
+                        randomElement = (int) ((Math.random() * (femaleRabbits.size() - 1)));
+                        if (maleRabbits.size() > randomElement) {
+                            maleRabbits.remove(randomElement);
+                            maleRabbitsEaten++;
+                        }
+                    }
+                }
             }
         }
     }
