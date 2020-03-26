@@ -197,27 +197,27 @@
   * Git
   * Too many people halted testing to solve git issues
   
-   ----
+----
  
- #### Day 3, Sprint 9: 30 mins
- #### Scrum master: Sebastian
- #### Sprint review:
- * What has been done?
-   * Working version onto master (Colette + moral support from team)
-   * Updated Trello board (Sebastian)
-   * Ensured working version on everyone's machine
- #### Sprint retrospective:
- * What went well?
-   * Everyone is now up-to-date with the project
-   * Everyone seems happy with working as a team
-   * Extra moral support
-   * Found common ground in hating RabbitProject.iml
- * What did not go as well?
-   * Git
- * What could be done differently?
-   * Git
+#### Day 3, Sprint 9: 30 mins
+#### Scrum master: Sebastian
+#### Sprint review:
+* What has been done?
+  * Working version onto master (Colette + moral support from team)
+  * Updated Trello board (Sebastian)
+  * Ensured working version on everyone's machine
+#### Sprint retrospective:
+* What went well?
+  * Everyone is now up-to-date with the project
+  * Everyone seems happy with working as a team
+  * Extra moral support
+  * Found common ground in hating RabbitProject.iml
+* What did not go as well?
+  * Git
+* What could be done differently?
+  * Git
    
- ----
+----
    
 #### Day 4, Sprint 10: 1 hour and 30 mins
 #### Scrum master: Tolga
