@@ -1,4 +1,21 @@
+# Rabbit Project
+![](https://media.giphy.com/media/YQCp9d6HrlnoI/giphy.gif)
+
+----
+
 **TODO: Maybe move sprint log to another file, or add contents list (with links) to this file.**
+
+----
+
+**TODO: Fix inconsistent formatting.**
+
+----
+
+**NOTE: Guys, please stop being afraid to make commits!! You WON'T permanently break anything; that is exactly what version control is supposed to prevent! Pretty much the only thing that would be irreversible would be if you lost your work WITHOUT committing it. Or if we nuked the remote repo, so PHIL, WE ARE NOT DOING THAT. >:(**
+
+----
+
+**NOTE: Please feel free to use the readme as a sandbox if you need to test Git things! :)**
 
 ----
 
@@ -33,20 +50,3 @@ Foxes  The client has asked that the following requirements be implemented:
 - Number of male foxes alive      
 - Number of female foxes alive      
 - Number of rabbits that have died (natural death and eaten)
-
-----
-
-**TODO: Fix inconsistent formatting.**
-
-----
-
-**NOTE: Guys, please stop being afraid to make commits!! You WON'T permanently break anything; that is exactly what version control is supposed to prevent! Pretty much the only thing that would be irreversible would be if you lost your work WITHOUT committing it. Or if we nuked the remote repo, so PHIL, WE ARE NOT DOING THAT. >:(**
-
-----
-
-**NOTE: Please feel free to use the readme as a sandbox if you need to test Git things! :)**
-
-----
-
-# Rabbit Project
-![](https://media.giphy.com/media/YQCp9d6HrlnoI/giphy.gif)
