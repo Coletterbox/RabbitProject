@@ -219,7 +219,7 @@
    
 ----
    
-#### Day 4, Sprint 10: 1 hour and 30 mins
+#### Day 4, Sprint 10: 90 mins
 #### Scrum master: Tolga
 #### Sprint review:
 * What has been done?
@@ -236,7 +236,7 @@
 
 ----
 
-#### Day 4, Sprint 11: 1 hour 
+#### Day 4, Sprint 11: 90 mins 
 #### Scrum master: Tolga
 #### Sprint review:
 *	What has been done?
