@@ -109,4 +109,4 @@
 #### This is kind of like the above section, but more specific to our experiences...
 
 * Sometimes it's really easy to miss that the command line is telling you that it has run into a problem. The text will be calm and white, but it will (for example) be telling you that the merge you just attempted actually failed, so when you next start the process of adding and committing, it will tell you that a whole bunch of files have changed, and you won't know why. That's why we have to be super careful about reading what the terminal says! :)
-* Regarding RabbitProject.iml, we just need to decide whether or not it goes in the .gitignore and be consistent about it.
+* Regarding RabbitProject.iml, we just need to decide whether or not it goes in the .gitignore and be consistent about it. In general, if it says you've made changes to a file (and the terminal's complaining about potentially overwriting it) but you don't see any (using git diff) and you're sure you didn't actually change it, just stash the changes or something; no one cares. It'll be fine. But it seems like we're leaning towards adding RabbitProject.iml to the .gitignore, anyway.
