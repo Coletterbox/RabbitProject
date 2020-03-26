@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public abstract class Animal implements AnimalInterface {
 
-    private int ageInMonths;
+    protected int ageInMonths;
     private boolean isAlive;
     protected int lifespan;
     protected int ageOfMaturity;
@@ -30,7 +30,7 @@ public abstract class Animal implements AnimalInterface {
         }
     }
 
-    private void animalDies() {
+    void animalDies() {
         this.isAlive = false;
     }
 

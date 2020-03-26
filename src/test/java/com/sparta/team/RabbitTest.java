@@ -1,8 +1,6 @@
 package com.sparta.team;
 
-import com.sparta.team.model.FemaleRabbit;
-import com.sparta.team.model.MaleRabbit;
-import com.sparta.team.model.Rabbit;
+import com.sparta.team.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,8 +11,8 @@ import java.util.List;
 
 public class RabbitTest {
 
-    private List<Rabbit> rabbits = new ArrayList<>();
-    private List<Rabbit> bunnies = new ArrayList<>();
+    private List<Animal> rabbits = new ArrayList<>();
+    private List<Animal> bunnies = new ArrayList<>();
 
     @BeforeEach
     public void setup() {
@@ -27,10 +25,10 @@ public class RabbitTest {
     @Test
     @DisplayName("Successful birth")
     public void testFemalesGiveBirth() {
-        for (Rabbit rabbit : rabbits) {
-            if (rabbit instanceof FemaleRabbit) {
+        for (Animal rabbit : rabbits) {
+            if (rabbit instanceof Rabbit) {
                 List<Rabbit> newBunnies = ((FemaleRabbit) rabbit).giveBirth();
-                for (Rabbit newBunny : newBunnies) {
+                for (Animal newBunny : newBunnies) {
                     bunnies.add(newBunny);
                 }
             }
@@ -43,15 +41,15 @@ public class RabbitTest {
     @Test
     @DisplayName("Create Male Rabbit")
     public void createMaleRabbit() {
-        Rabbit maleRabbit = rabbits.get(0);
-        Assertions.assertEquals(true, maleRabbit instanceof MaleRabbit);
+        Animal maleRabbit = rabbits.get(0);
+        Assertions.assertEquals(true, maleRabbit instanceof Fox);
     }
 
     @Test
     @DisplayName("Create Female Rabbit")
     public void createFemaleRabbit() {
-        Rabbit femaleRabbit = rabbits.get(2);
-        Assertions.assertEquals(true, femaleRabbit instanceof FemaleRabbit);
+        Animal femaleRabbit = rabbits.get(2);
+        Assertions.assertEquals(true, femaleRabbit instanceof Rabbit);
     }
 
 //    @Test

@@ -4,6 +4,7 @@ import com.sparta.team.display.DisplayManager;
 import com.sparta.team.model.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
@@ -28,6 +29,8 @@ public class WorldSimulation {
         femaleFoxes.add(new FemaleFox());
         maleRabbitsLived++;
         femaleRabbitsLived++;
+        maleFoxesLived++;
+        femaleFoxesLived++;
         DisplayManager displayManager = new DisplayManager(outputType);
 
         for (int i = 0; i < numberOfSeconds; i++) {
@@ -62,8 +65,12 @@ public class WorldSimulation {
          */
         updateAge(maleRabbits);
         updateAge(femaleRabbits);
+        updateAge(maleFoxes);
+        updateAge(femaleFoxes);
 
         giveBirthAllFemales(maleRabbits, femaleRabbits);
+
+
         giveBirthAllFemales(maleFoxes, femaleFoxes);
     }
 
@@ -83,25 +90,27 @@ public class WorldSimulation {
 
     private void giveBirthAllFemales(List<Animal> males, List<Animal> females) {
         List<Animal> toAddAnimals = new ArrayList<>();
-        Animal dummyFemale;
+        //females = (List<Female>) females;
+        FemaleAnimal dummyFemaleAnimal;
         if (females.get(0) instanceof FemaleRabbit) {
-            dummyFemale = new FemaleRabbit();
+            dummyFemaleAnimal = new FemaleRabbit();
         } else {
-            dummyFemale = new FemaleFox();
+            dummyFemaleAnimal = new FemaleFox();
         }
         int maleIndex = 0;
         int femaleIndex = 0;
         Random random = new Random();
 
         while (maleIndex < males.size() && femaleIndex < females.size()) {
+            FemaleAnimal femaleAnimal = (FemaleAnimal) females.get(femaleIndex);
             if (!(males.get(maleIndex).isMature())) {
                 maleIndex++;
-            } else if (!(females.get(femaleIndex).isMature())) {
+            } else if (!(femaleAnimal.isMature()) && !(femaleAnimal.isPregnant())) {
                 femaleIndex++;
             } else {
                 if (random.nextBoolean()) {
 //                    femaleRabbit.setPregnant(true);
-                    toAddAnimals.addAll(dummyFemale.giveBirth());
+                    toAddAnimals.addAll((Collection<? extends Animal>) dummyFemaleAnimal.giveBirth());
                 }
                 maleIndex++;
                 femaleIndex++;
@@ -111,10 +120,10 @@ public class WorldSimulation {
     }
 
     private boolean checkFoxPregnant(FemaleFox fox) {
-        if (fox.getAgeInMonths() % 12 == 10) {
-            return false;
+        if (fox.isPregnant()) {
+            return true;
         }
-        return true;
+        return false;
     }
 
 //    private void removeDeadRabbit(Rabbit r) {

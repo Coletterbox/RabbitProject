@@ -1,4 +1,8 @@
 package com.sparta.team.model;
 
-public class MaleRabbit {
+public class MaleRabbit extends Rabbit {
+
+    public MaleRabbit() {
+        super();
+    }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class FemaleRabbit extends Rabbit {
+public class FemaleRabbit extends Rabbit implements FemaleAnimal {
 
     private static final int PREGNANCY_LENGTH = 1;
     private boolean isPregnant = false;
@@ -13,7 +13,9 @@ public class FemaleRabbit extends Rabbit {
         super();
     }
 
+    @Override
     public List<Rabbit> giveBirth() {
+        this.setPregnant(true);
         List<Rabbit> listOfBunnies = new ArrayList<>();
         Random random = new Random();
         int numberOfBunnies = random.nextInt(14) + 1;
@@ -25,9 +27,11 @@ public class FemaleRabbit extends Rabbit {
                 listOfBunnies.add(new MaleRabbit());
             }
         }
+        this.setPregnant(false);
         return listOfBunnies;
     }
 
+    @Override
     public boolean isPregnant() {
         return isPregnant;
     }
