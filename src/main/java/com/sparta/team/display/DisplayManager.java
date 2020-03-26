@@ -74,9 +74,9 @@ public class DisplayManager implements DisplayManagerInterface {
     }
 
     @Override
-    public void displayAnimalsEaten(long eaten) {
+    public void displayAnimalsEaten(long lived, long alive, long eaten) {
         writeToFile("Rabbit eaten by fox [" + eaten + "]");
-        writeToFile("Rabbit die by natural [" + (((livedM - aliveM)- eaten) +((livedF - aliveF))- eaten) + "]");
+        writeToFile("Rabbit die by natural [" + (lived - alive - eaten) + "]");
     }
 
     @Override

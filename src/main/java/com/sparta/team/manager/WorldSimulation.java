@@ -47,19 +47,21 @@ public class WorldSimulation {
             }
             if (outputType == 1) {
                 displayManager.displayTimeElapsed(i);
-                displayManager.displayRabbitsAlive(maleRabbits.size(), femaleRabbits.size());
-                displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
-                displayManager.displayRabbitsAlive(maleFoxes.size(), femaleFoxes.size());
-                displayManager.displayRabbitsLived(maleFoxesLived, femaleFoxesLived);
+                displayManager.displayAnimalsAlive("rabbits", maleRabbits.size(), femaleRabbits.size());
+                displayManager.displayAnimalsLived("rabbits", maleRabbitsLived, femaleRabbitsLived);
+                displayManager.displayAnimalsAlive("foxes", maleFoxes.size(), femaleFoxes.size());
+                displayManager.displayAnimalsLived("foxes", maleFoxesLived, femaleFoxesLived);
+                displayManager.displayAnimalsEaten(maleRabbitsLived + femaleRabbitsLived, maleRabbits.size() + femaleRabbits.size(), maleRabbitsEaten + femaleRabbitsEaten);
             }
         }
 
         if (outputType == 2) {
             displayManager.displayTimeElapsed(numberOfSeconds);
-            displayManager.displayRabbitsAlive(maleRabbits.size(), femaleRabbits.size());
-            displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
-            displayManager.displayRabbitsAlive(maleFoxes.size(), femaleFoxes.size());
-            displayManager.displayRabbitsLived(maleFoxesLived, femaleFoxesLived);
+            displayManager.displayAnimalsAlive("rabbits", maleRabbits.size(), femaleRabbits.size());
+            displayManager.displayAnimalsLived("rabbits", maleRabbitsLived, femaleRabbitsLived);
+            displayManager.displayAnimalsAlive("foxes", maleFoxes.size(), femaleFoxes.size());
+            displayManager.displayAnimalsLived("foxes", maleFoxesLived, femaleFoxesLived);
+            displayManager.displayAnimalsEaten(maleRabbitsLived + femaleRabbitsLived, maleRabbits.size() + femaleRabbits.size(), maleRabbitsEaten + femaleRabbitsEaten);
         }
         displayManager.writerClose();
 
@@ -77,6 +79,7 @@ public class WorldSimulation {
         updateAge(femaleRabbits);
         giveBirthAllFemales(maleRabbits, femaleRabbits);
     }
+
     private void updateFoxes() {
         updateAge(maleFoxes);
         updateAge(femaleFoxes);
