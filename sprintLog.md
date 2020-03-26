@@ -2,10 +2,6 @@
 
 ----
 
-**TODO: Fix inconsistent formatting.**
-
-----
-
 ![](https://www.quickscrum.com/Images/article_detail/scrum-retrospective-meeting.png)
 ## Sprint Log Template
 ### Day \[number\]
