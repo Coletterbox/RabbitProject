@@ -213,6 +213,7 @@ public class MatrixSimulation {
 
         //getting the number of couples for Foxes
         long numberOfFoxCouples = 0;
+
         if((monthsElapsed-foxIntroductionMonth) % foxBreedingFrequency == 0){
             numberOfFoxCouples = getAnimalCouples(foxMaturity, femaleFoxesByAge, maleFoxesByAge);
             log.trace("Number of fox couples available: " + numberOfFoxCouples);
