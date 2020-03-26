@@ -214,15 +214,15 @@
 #### Day 4, Sprint 10: 1 hour and 30 mins
 #### Scrum master: Tolga
 #### Sprint review:
-•	What has been done?
-o	Updated Trello board for new fox feature (Everyone)
-o	Working on no object simulation and object simulation fox implementation in separate groups
+*	What has been done?
+*	Updated Trello board for new fox feature (Everyone)
+*	Working on no object simulation and object simulation fox implementation in separate groups
 #### Sprint retrospective:
-•	What went well?
-o	Got logic done for the foxes in no object simulation
-o	Was nice having two meeting in one chat
-•	What did not go as well?
-o	Git
-•	What could be done differently?
-o	Mixing up teams for experimenting and trying something differently with teams
+*	What went well?
+* Got logic done for the foxes in no object simulation
+*	Was nice having two meeting in one chat
+*	What did not go as well?
+*	Git
+*	What could be done differently?
+*	Mixing up teams for experimenting and trying something differently with teams
 
