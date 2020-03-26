@@ -15,7 +15,7 @@
 
 ----
 
-**Customer Requirements**
+## Customer Requirements
 
 ### Phase 1: Rabbits  
 #### The client has asked that the following requirements be implemented:
@@ -42,8 +42,8 @@
 - Females are able to breed after 10 months  
 - While rabbits are available, a single fox can eat up to 20 rabbits a month  
 - Your simulator should reports on the following after finishing the time period:      
-        - Number of male rabbits alive      
-        - Number of female rabbits alive      
-        - Number of male foxes alive      
-        - Number of female foxes alive      
-        - Number of rabbits that have died (natural death and eaten)
+    - Number of male rabbits alive      
+    - Number of female rabbits alive      
+    - Number of male foxes alive      
+    - Number of female foxes alive      
+    - Number of rabbits that have died (natural death and eaten)
