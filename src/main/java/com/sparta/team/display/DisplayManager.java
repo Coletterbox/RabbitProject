@@ -14,6 +14,8 @@ public class DisplayManager implements DisplayManagerInterface {
 
     private long aliveM = 0;
     private long aliveF = 0;
+    private long livedM = 0;
+    private long livedF = 0;
     private int type;
     private Writer writer = null;
 
@@ -56,17 +58,30 @@ public class DisplayManager implements DisplayManagerInterface {
     }
 
     @Override
-    public void displayRabbitsLived(String animalType, long maleRabbits, long femaleRabbits) {
+    public void displayAnimalsLived(String animalType, long maleRabbits, long femaleRabbits) {
+        livedM = maleRabbits;
+        livedF = femaleRabbits;
         displayMaleRabbitsLived(animalType,maleRabbits);
         displayFemaleRabbitsLived(animalType,femaleRabbits);
     }
 
     @Override
-    public void displayRabbitsAlive(String animalType, long maleRabbits, long femaleRabbits) {
+    public void displayAnimalsAlive(String animalType, long maleRabbits, long femaleRabbits) {
         aliveM = maleRabbits;
         aliveF = femaleRabbits;
         displayMaleRabbitsAlive(animalType,maleRabbits);
         displayFemaleRabbitsAlive(animalType,femaleRabbits);
+    }
+
+    @Override
+    public void displayAnimalsEaten(long eaten) {
+        writeToFile("Rabbit eaten by fox [" + eaten + "]");
+        writeToFile("Rabbit die by natural [" + (((livedM - aliveM)- eaten) +((livedF - aliveF))- eaten) + "]");
+    }
+
+    @Override
+    public void displayMessageInReport(String message) {
+        writeToFile(message);
     }
 
     private void initialWriter() {
