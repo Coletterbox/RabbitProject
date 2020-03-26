@@ -44,7 +44,7 @@
 
 ----
 
-### Day 2, Sprint 2: 60 mins
+### Day 2, Sprint 2: 60 minutes
 #### Scrum master: James
 #### Sprint review:
 * What has been done?
@@ -62,7 +62,7 @@
 
 ----
 
-### Day 2, Sprint 3: 60 mins
+### Day 2, Sprint 3: 60 minutes
 #### Scrum master: James
 #### Sprint review:
 * What has been done?
@@ -77,7 +77,7 @@
 
 -----
 
-### Day 2, Sprint 4: 60 mins
+### Day 2, Sprint 4: 60 minutes
 #### Scrum master: Lubnah
 #### Sprint review:
 * What has been done?
@@ -95,7 +95,7 @@
 
 ----
 
-### Day 2, Sprint 5: 60 mins
+### Day 2, Sprint 5: 60 minutes
 #### Scrum master: Lubnah
 #### Sprint review:
 * What has been done?
@@ -112,7 +112,7 @@
 
 ----
 
-### Day 3, Sprint 6: 120 mins
+### Day 3, Sprint 6: 120 minutes
 #### Scrum master: Phil
 #### Sprint review:
 * What has been done?
@@ -137,7 +137,7 @@
 
 ----
 
-### Day 3, Sprint 7: 45 mins
+### Day 3, Sprint 7: 45 minutes
 #### Scrum master: Phil
 #### Sprint review:
 * What has been done?
@@ -162,7 +162,7 @@
 
 ----
 
-### Day 3, Sprint 8: 90 mins
+### Day 3, Sprint 8: 90 minutes
 #### Scrum master: Sebastian
 #### Sprint review:
 * What has been done?
@@ -183,7 +183,7 @@
 
 ----
 
-### Day 3, Sprint 9: 30 mins
+### Day 3, Sprint 9: 30 minutes
 #### Scrum master: Sebastian
 #### Sprint review:
 * What has been done?
@@ -203,7 +203,7 @@
 
 ----
 
-### Day 4, Sprint 10: 90 mins
+### Day 4, Sprint 10: 90 minutes
 #### Scrum master: Tolga
 #### Sprint review:
 * What has been done?
@@ -220,7 +220,7 @@
 
 ----
 
-### Day 4, Sprint 11: 90 mins
+### Day 4, Sprint 11: 90 minutes
 #### Scrum master: Tolga
 #### Sprint review:
 *	What has been done?
@@ -240,7 +240,7 @@
 
 ----
 
-### Day 4, Sprint 12: 60 mins
+### Day 4, Sprint 12: 60 minutes
 #### Scrum master: Alonso
 #### Sprint review:
 *	What has been done?
