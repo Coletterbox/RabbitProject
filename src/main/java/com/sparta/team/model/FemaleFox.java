@@ -4,28 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class FemaleRabbit extends Rabbit {
+public class FemaleFox extends Fox {
 
-    private static final int PREGNANCY_LENGTH = 1;
+    private static final int PREGNANCY_LENGTH = 12;
     private boolean isPregnant = false;
 
-    public FemaleRabbit() {
+    public FemaleFox() {
         super();
     }
 
-    public List<Rabbit> giveBirth() {
-        List<Rabbit> listOfBunnies = new ArrayList<>();
+    public List<Fox> giveBirth() {
+        List<Fox> listOfBabies = new ArrayList<>();
         Random random = new Random();
         int numberOfBunnies = random.nextInt(14) + 1;
         for (int i = 0; i < numberOfBunnies; i++) {
             boolean setGender = random.nextBoolean(); // TRUE IS FEMALE, FALSE IS MALE
             if (setGender) {
-                listOfBunnies.add(new FemaleRabbit());
+                listOfBabies.add(new FemaleFox());
             } else {
-                listOfBunnies.add(new MaleRabbit());
+                listOfBabies.add(new MaleFox());
             }
         }
-        return listOfBunnies;
+        return listOfBabies;
     }
 
     public boolean isPregnant() {
