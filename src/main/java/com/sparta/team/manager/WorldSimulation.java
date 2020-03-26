@@ -2,6 +2,8 @@ package com.sparta.team.manager;
 
 import com.sparta.team.display.DisplayManager;
 import com.sparta.team.model.*;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +11,9 @@ import java.util.List;
 import java.util.Random;
 
 public class WorldSimulation {
+
+    static final String LOG_PROPERTIES_FILE_WORLD_SIMULATION = "resources/log4j.properties";
+    static Logger logSim = Logger.getLogger(WorldSimulation.class.getName());
 
     private List<Animal> maleRabbits = new ArrayList();
     private List<Animal> femaleRabbits = new ArrayList();
@@ -23,9 +28,11 @@ public class WorldSimulation {
     private long femaleRabbitsEaten = 0;
 
     private int startEatingAt = 1;
-    private int introduceFoxesAt = 8;
+    private int introduceFoxesAt = 7;
 
     public void startSimulation(int numberOfSeconds, int outputType) {
+
+        initialiseLogging();
 
         //hardcoded initial population
         maleRabbits.add(new MaleRabbit());
@@ -48,9 +55,9 @@ public class WorldSimulation {
             if (outputType == 1) {
                 displayManager.displayTimeElapsed(i);
                 displayManager.displayAnimalsAlive("rabbits", maleRabbits.size(), femaleRabbits.size());
-                displayManager.displayAnimalsLived("rabbits", maleRabbitsLived, femaleRabbitsLived);
+                //displayManager.displayAnimalsLived("rabbits", maleRabbitsLived, femaleRabbitsLived);
                 displayManager.displayAnimalsAlive("foxes", maleFoxes.size(), femaleFoxes.size());
-                displayManager.displayAnimalsLived("foxes", maleFoxesLived, femaleFoxesLived);
+                //displayManager.displayAnimalsLived("foxes", maleFoxesLived, femaleFoxesLived);
                 displayManager.displayAnimalsEaten(maleRabbitsLived + femaleRabbitsLived, maleRabbits.size() + femaleRabbits.size(), maleRabbitsEaten + femaleRabbitsEaten);
             }
         }
@@ -58,11 +65,12 @@ public class WorldSimulation {
         if (outputType == 2) {
             displayManager.displayTimeElapsed(numberOfSeconds);
             displayManager.displayAnimalsAlive("rabbits", maleRabbits.size(), femaleRabbits.size());
-            displayManager.displayAnimalsLived("rabbits", maleRabbitsLived, femaleRabbitsLived);
+            //displayManager.displayAnimalsLived("rabbits", maleRabbitsLived, femaleRabbitsLived);
             displayManager.displayAnimalsAlive("foxes", maleFoxes.size(), femaleFoxes.size());
-            displayManager.displayAnimalsLived("foxes", maleFoxesLived, femaleFoxesLived);
+            //displayManager.displayAnimalsLived("foxes", maleFoxesLived, femaleFoxesLived);
             displayManager.displayAnimalsEaten(maleRabbitsLived + femaleRabbitsLived, maleRabbits.size() + femaleRabbits.size(), maleRabbitsEaten + femaleRabbitsEaten);
         }
+        logSim.debug("Finished simulation cycle.");
         displayManager.writerClose();
 
 
@@ -88,8 +96,8 @@ public class WorldSimulation {
     }
 
     private List<Animal> updateAge(List<Animal> animals) {
+        logSim.debug("Updating age for animals");
         List<Animal> toRemove = new ArrayList<>();
-
         for (Animal r : animals) {
             r.incrementAge();
             if (!r.isAlive()) {
@@ -143,15 +151,10 @@ public class WorldSimulation {
     }
 
     private void foxesEatRabbits() {
-//        List<Rabbit> allRabbits = new ArrayList<>();
-//        allRabbits.addAll(maleRabbits);
-//        allRabbits.addAll(femaleRabbits);
         List<Animal> allFoxes = new ArrayList<>();
         allFoxes.addAll(maleFoxes);
         allFoxes.addAll(femaleFoxes);
         int randomElement;
-//        List<Rabbit> toRemove = new ArrayList<>();
-
         for (Animal fox : allFoxes) {
             if (fox.getAgeInMonths() >= startEatingAt) {
                 Random random = new Random();
@@ -173,5 +176,10 @@ public class WorldSimulation {
                 }
             }
         }
+        logSim.debug("Foxes finished eating rabbits this month.");
+    }
+
+    public static void initialiseLogging() {
+        PropertyConfigurator.configure(LOG_PROPERTIES_FILE_WORLD_SIMULATION);
     }
 }

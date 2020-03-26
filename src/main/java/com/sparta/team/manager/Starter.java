@@ -3,13 +3,14 @@ package com.sparta.team.manager;
 import com.sparta.team.display.UserInput;
 
 /**
- * Hello world!
+ * Welcome to Team Awesome
  */
 public class Starter {
     public static void main(String[] args) {
         UserInput userInput = new UserInput();
-        MatrixSimulation matrixSimulation = new MatrixSimulation();
         int type = userInput.getTerminalOutputForResultType();
-        matrixSimulation.startSimulation(40, type);
+        WorldSimulation worldSimulation = new WorldSimulation();
+        worldSimulation.startSimulation(40, type);
+
     }
 }

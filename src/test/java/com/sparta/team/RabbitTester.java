@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RabbitTest {
+public class RabbitTester {
 
     private List<Animal> rabbits = new ArrayList<>();
     private List<Animal> bunnies = new ArrayList<>();
@@ -26,7 +26,7 @@ public class RabbitTest {
     @DisplayName("Successful birth")
     public void testFemalesGiveBirth() {
         for (Animal rabbit : rabbits) {
-            if (rabbit instanceof Rabbit) {
+            if (rabbit instanceof FemaleRabbit) {
                 List<Rabbit> newBunnies = ((FemaleRabbit) rabbit).giveBirth();
                 for (Animal newBunny : newBunnies) {
                     bunnies.add(newBunny);
@@ -42,7 +42,7 @@ public class RabbitTest {
     @DisplayName("Create Male Rabbit")
     public void createMaleRabbit() {
         Animal maleRabbit = rabbits.get(0);
-        Assertions.assertEquals(true, maleRabbit instanceof Fox);
+        Assertions.assertEquals(true, maleRabbit instanceof Rabbit);
     }
 
     @Test
@@ -52,12 +52,12 @@ public class RabbitTest {
         Assertions.assertEquals(true, femaleRabbit instanceof Rabbit);
     }
 
-//    @Test
-//    @DisplayName("Increase rabbit age ")
-//    public void incrementedRabbitAge() {
-//        rabbits.get(0).incrementAge();
-//        Assertions.assertEquals(1, rabbits.get(0).getAgeInMonths());
-//    }
+    @Test
+    @DisplayName("Increase rabbit age ")
+    public void incrementedRabbitAge() {
+        rabbits.get(0).incrementAge();
+        Assertions.assertEquals(1, rabbits.get(0).getAgeInMonths());
+    }
 
     @Test
     @DisplayName("Mate at Matured age")
@@ -80,11 +80,15 @@ public class RabbitTest {
     @Test
     @DisplayName("Is Pregnant")
     public void isPregnant() {
-
+        FemaleAnimal femaleAnimal = (FemaleAnimal) rabbits.get(2);
+        femaleAnimal.giveBirth();
+        Assertions.assertEquals(true, femaleAnimal.isPregnant());
     }
 
     @Test
     @DisplayName("Is No Longer Pregnant")
     public void isNotPregnant() {
+        FemaleAnimal femaleAnimal = (FemaleAnimal) rabbits.get(3);
+        Assertions.assertEquals(false, femaleAnimal.isPregnant());
     }
 }

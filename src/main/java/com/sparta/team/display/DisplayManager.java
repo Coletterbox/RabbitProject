@@ -75,8 +75,8 @@ public class DisplayManager implements DisplayManagerInterface {
 
     @Override
     public void displayAnimalsEaten(long lived, long alive, long eaten) {
-        writeToFile("Rabbit eaten by fox [" + eaten + "]");
-        writeToFile("Rabbit die by natural [" + (lived - alive - eaten) + "]");
+        writeToFile("Rabbits eaten by foxes [" + eaten + "]");
+        writeToFile("Rabbits that died of natural death [" + (lived - alive - eaten) + "]");
     }
 
     @Override
@@ -97,7 +97,7 @@ public class DisplayManager implements DisplayManagerInterface {
         try {
             writer.write(line + "\n");
         } catch (IOException e) {
-            e.printStackTrace(); // Report log please
+            log.debug(e);
         }
     }
 
@@ -105,6 +105,7 @@ public class DisplayManager implements DisplayManagerInterface {
         System.out.println("Please check results file for results.");
         writeToFile("______________Simulation Finished______________");
         writeToFile("_                                             _");
+        log.debug("Simulation Finished");
         try {
             writer.close();
         } catch (IOException e) {
