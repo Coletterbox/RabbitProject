@@ -248,16 +248,18 @@
  
  ----
 
-#### Day 4, Sprint 12: 2 mins 
+#### Day 4, Sprint 12: 60 mins 
 #### Scrum master: Alonso
 #### Sprint review:
 *		What has been done?
- *		Got Alonso coffee
+ *		Object team successfully implemented fox reproduction
+ *  Method for getting a random number of rabbits to be eaten and they are also randomly selected
 #### Sprint retrospective:
 *	What went well?
- *	Alonso got coffee
+ *	We pushed what was needed to GIT
+ * Worked well in team
+ * Good discussion about code strategy
 *	What did not go as well?
- *	Not everyone got coffee
- *	Colette only has instant coffee left
+ *	Communication could be better in teams
 *		What could be done differently?
- * The two minutes was an optimistic prediction
+ * Being more mindful of formatting in RabbitProject
