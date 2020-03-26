@@ -125,8 +125,7 @@
   * Have a working version of a non Object version of bunny breeding that needs testing (A,J,P)
   * Have working input for months to be run (T)
   * Have Visual elements of Display Completed (T)
-  * Have improved the Git Readme To include more safety measures (C)
-  
+  * Have improved the Git Readme To include more safety measures (C)  
 #### Sprint retrospective:
 * What went well?
   * Non Object version works well 
@@ -153,7 +152,6 @@
   * User Entry Passed all tests
   * Display now shows when Simulator is done
   * Large update to GitGuide including FAQ for common issues (C)
-  
 #### Sprint retrospective:
 * What went well?
   * Now know limitations of Object version of bunny breeding 
@@ -176,7 +174,6 @@
   * Output to text file (Alonso, Tolga)
   * Testing done on rabbitCouples, ageRabbit (Colette, Lubnah, Philip, James, Sebastian)
   * Working artifact approved by product owner
-  
 #### Sprint retrospective:
 * What went well?
   * Progress was achieved in implementing core features
@@ -197,7 +194,6 @@
    * Working version onto master (Colette + moral support from team)
    * Updated Trello board (Sebastian)
    * Ensured working version on everyone's machine
-   
  #### Sprint retrospective:
  * What went well?
    * Everyone is now up-to-date with the project
@@ -217,7 +213,6 @@
 *	What has been done?
  *	Updated Trello board for new fox feature (Everyone)
  *	Working on no object simulation and object simulation fox implementation in separate groups
- 
 #### Sprint retrospective:
 *	What went well?
  * Got logic done for the foxes in no object simulation
@@ -237,7 +232,6 @@
  *	 Give birth works in objects simulation
  *		Made progress fox eating rabbits in no object’s version of simulation
  *		Bug found and fixed in no objects simulation
- 
 #### Sprint retrospective:
 *	What went well?
  *	Did more coding (L)
@@ -247,3 +241,19 @@
 *		What could be done differently?
  *	Needs more testing and logs for both objects and no objects simulation
  *		Adding note for iml file problems to the readme (C)
+ 
+ ----
+
+#### Day 4, Sprint 12: 2 mins 
+#### Scrum master: Alonso
+#### Sprint review:
+*		What has been done?
+ *		Got Alonso coffee
+#### Sprint retrospective:
+*	What went well?
+ *	Alonso got coffee
+*	What did not go as well?
+ *	Not everyone got coffee
+ *	Colette only has instant coffee left
+*		What could be done differently?
+ * The two minutes was an optimistic prediction
