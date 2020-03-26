@@ -57,7 +57,11 @@
   ```
 &nbsp;&nbsp;&nbsp;&nbsp;If you forget to add a commit message, you can exit Vim by typing ":wq" at the bottom and pressing enter.
 
-11. Push your changes.
+11. Make sure that your version of the project is up to date (i.e. that no one has pushed any changes between when you last pulled and now) by pulling again.
+  ```
+  git pull
+  ```
+12. Push your changes.
   ```
   git push origin [branch name]
   ```
