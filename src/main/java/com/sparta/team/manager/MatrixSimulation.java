@@ -4,10 +4,9 @@ import com.sparta.team.display.DisplayManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class MatrixSimulation {
 
@@ -15,17 +14,17 @@ public class MatrixSimulation {
     static Logger log = Logger.getLogger(MatrixSimulation.class.getName());
 
 
-    private final int RABBITMATURITY = 3;
-    private final int RABBITLIFESPAN = 60;
+    private int rabbitMaturity = 3;
+    private int rabbitLifespan = 60;
 
-    private final int FOXMATURITY = 10;
-    private final int FOXLIFESPAN = 60;
+    private int foxMaturity = 10;
+    private int foxLifespan = 60;
 
-    private List<Long> femaleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(RABBITLIFESPAN, 0l));
-    private List<Long> maleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(RABBITLIFESPAN, 0l));
+    private List<Long> femaleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
+    private List<Long> maleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
 
-    private List<Long> femaleFoxesByAge = new ArrayList<Long>(Collections.nCopies(RABBITLIFESPAN, 0l));
-    private List<Long> maleFoxesByAge = new ArrayList<Long>(Collections.nCopies(RABBITLIFESPAN, 0l));
+    private List<Long> femaleFoxesByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
+    private List<Long> maleFoxesByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
 
     private long maleRabbitsLived = 0;
     private long femaleRabbitsLived = 0;
@@ -42,17 +41,22 @@ public class MatrixSimulation {
     private long femaleFoxesAlive = 0;
 
     private int monthsElapsed = 0;
+    private int numberOfMonths = 0;
 
     private int maxNumberOfRabbitsFoxEats = 20;
+
+    private int foxBreedingFrequency = 12;
+    private int foxIntroductionMonth = 0;
 
     Random random = new Random();
 
 
 
-    public void startSimulation(int numberOfMonths, int displayOutputType){
+    public void startSimulation(int numberOfMonthsTemp, int displayOutputType){
 
         initialiseLogging();
         populateInitialGeneration();
+        importProperties();
         DisplayManager displayManager = new DisplayManager(displayOutputType);
 
         //flow of time
@@ -69,24 +73,92 @@ public class MatrixSimulation {
             log.trace("------------------------------");
 
 
-            if(displayOutputType == 1){
-                displayManager.displayTimeElapsed(monthsElapsed);
-                displayManager.displayRabbitsAlive(maleRabbitsAlive, femaleRabbitsAlive);
-                displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
+            if(monthsElapsed == foxIntroductionMonth){
+                releaseTheHounds();
             }
 
 
+//            if(displayOutputType == 1){
+//                displayManager.displayTimeElapsed(monthsElapsed);
+//                displayManager.displayRabbitsAlive(maleRabbitsAlive, femaleRabbitsAlive);
+//                displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
+//            }
+
+
         }
 
 
 
-        if(displayOutputType == 2){
-            displayManager.displayTimeElapsed(monthsElapsed);
-            displayManager.displayRabbitsAlive(maleRabbitsAlive, femaleRabbitsAlive);
-            displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
-        }
+//        if(displayOutputType == 2){
+//            displayManager.displayTimeElapsed(monthsElapsed);
+//        displayManager.displayRabbitsAlive(maleRabbitsAlive, femaleRabbitsAlive);
+//        displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
+//    }
         displayManager.writerClose();
     }
+
+
+    public void importProperties(){
+
+        Properties properties = new Properties();
+
+        try {
+            properties.load(new FileReader("resources/simulation.properties"));
+
+            String numberOfMonths = properties.getProperty("numberOfMonths");
+            this.numberOfMonths = Integer.parseInt(numberOfMonths);
+
+            String rabbitMaturity = properties.getProperty("rabbitMaturity");
+            this.rabbitMaturity = Integer.parseInt(rabbitMaturity);
+
+            String rabbitLifespan = properties.getProperty("rabbitLifespan");
+            this.rabbitLifespan = Integer.parseInt(rabbitLifespan);
+
+            String foxMaturity = properties.getProperty("foxMaturity");
+            this.foxMaturity = Integer.parseInt(foxMaturity);
+
+            String foxLifespan = properties.getProperty("foxLifespan");
+            this.foxLifespan = Integer.parseInt(foxLifespan);
+
+            String foxIntroductionMonth = properties.getProperty("foxIntroductionMonth");
+            this.foxIntroductionMonth = Integer.parseInt(foxIntroductionMonth);
+
+            String foxBreedingFrequency = properties.getProperty("foxBreedingFrequency");
+            this.foxBreedingFrequency = Integer.parseInt(foxBreedingFrequency);
+
+
+
+
+
+
+            /*
+#initialFemaleRabbitPopulation=1
+#initialMaleRabbitPopulation=1
+#initialFemaleFoxPopulation=1
+#initialMaleFoxPopulation=1
+#rabbitMaxLitterSize
+#foxMaxLitterSize
+#foxIntroductionMonth
+
+
+
+
+             */
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+
+
+
+    }
+
+
+
+
+
 
 
 
@@ -108,7 +180,7 @@ public class MatrixSimulation {
     }
 
 
-    public void weLetTheDogsOut(){
+    public void releaseTheHounds(){
 
         log.trace("Lucifer and Philip");
         femaleFoxesByAge.set(0, 1l);
@@ -128,19 +200,21 @@ public class MatrixSimulation {
 
         log.trace("Female rabbit population at start: " + femaleRabbitsByAge.toString());
         log.trace("Male rabbit population at start: " + maleRabbitsByAge.toString());
+        log.trace("Female fox population at start: " + femaleFoxesByAge.toString());
+        log.trace("Male fox population at start: " + maleFoxesByAge.toString());
 
 
 
 
 
         //getting the number of couples for Rabbits
-        long numberOfRabbitCouples = getAnimalCouples(RABBITMATURITY, femaleRabbitsByAge, maleRabbitsByAge);
+        long numberOfRabbitCouples = getAnimalCouples(rabbitMaturity, femaleRabbitsByAge, maleRabbitsByAge);
         log.trace("Number of rabbit couples available: " + numberOfRabbitCouples);
 
         //getting the number of couples for Foxes
         long numberOfFoxCouples = 0;
-        if(monthsElapsed % 12 == 0){
-            numberOfFoxCouples = getAnimalCouples(FOXMATURITY, femaleFoxesByAge, maleFoxesByAge);
+        if((monthsElapsed-foxIntroductionMonth) % foxBreedingFrequency == 0){
+            numberOfFoxCouples = getAnimalCouples(foxMaturity, femaleFoxesByAge, maleFoxesByAge);
             log.trace("Number of fox couples available: " + numberOfFoxCouples);
 
         }
@@ -164,7 +238,8 @@ public class MatrixSimulation {
         log.trace("Female rabbit population after new population born: " + femaleRabbitsByAge.toString());
         log.trace("Male rabbit population after new population born: " + maleRabbitsByAge.toString());
 
-        if(monthsElapsed % 12 == 0){
+
+        if((monthsElapsed-foxIntroductionMonth) % foxBreedingFrequency == 0){
             //breed foxes method
             generateNewGeneration(numberOfFoxCouples, 10, "Fox");
             log.trace("Female fox population after new population born: " + femaleFoxesByAge.toString());
@@ -308,13 +383,21 @@ public class MatrixSimulation {
 
                     if (isFemale) {
                         newFemaleGeneration++;
-                        if(animalType.equals("Rabbit")) femaleRabbitsLived++;
-                        else femaleFoxesLived++;
+                        if(animalType.equals("Rabbit")){
+                            femaleRabbitsLived++;
+                        }
+                        else{
+                            femaleFoxesLived++;
+                        }
 
                     } else {
                         newMaleGeneration++;
-                        if(animalType.equals("Rabbit")) maleRabbitsLived++;
-                        else maleFoxesLived++;
+                        if(animalType.equals("Rabbit")){
+                            maleRabbitsLived++;
+                        }
+                        else {
+                            maleFoxesLived++;
+                        }
 
                     }
 
@@ -392,12 +475,12 @@ public class MatrixSimulation {
 
 
 
-    public int getRABBITMATURITY() {
-        return RABBITMATURITY;
+    public int getRabbitMaturity() {
+        return rabbitMaturity;
     }
 
-    public int getRABBITLIFESPAN() {
-        return RABBITLIFESPAN;
+    public int getRabbitLifespan() {
+        return rabbitLifespan;
     }
 
     public List<Long> getFemaleRabbitsByAge() {
