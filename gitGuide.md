@@ -1,5 +1,7 @@
 # Guide to using Git/GitHub and (hopefully) not breaking anything!
 
+----
+
 ## Please let me know if anything is still confusing, or if this sequence of events isn't the most helpful.
 
 ![This is me and you.](https://media.giphy.com/media/kswZdQQQV7pAc/giphy.gif)
@@ -65,7 +67,7 @@
   ```
   git push origin [branch name]
   ```
-  
+
 ![Final Space was only okay.](https://media.giphy.com/media/47D5dzXraWsldmlx9F/giphy.gif)
 
 ----

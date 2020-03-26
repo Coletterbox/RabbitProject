@@ -1,9 +1,12 @@
 # Rabbit Project
+
+----
+
 ![](https://media.giphy.com/media/YQCp9d6HrlnoI/giphy.gif)
 
 ----
 
-[Trello Link](https://trello.com/b/DXMhTeja/team-awesome)
+## [Trello Link](https://trello.com/b/DXMhTeja/team-awesome)
 
 ----
 
