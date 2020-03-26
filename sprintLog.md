@@ -52,6 +52,13 @@
 
 ### Day 2, Sprint 2: 60 minutes
 #### Scrum master: James
+
+#### Sprint backlog:
+* Set up interfaces for rabbit classes
+* Set up interfaces for controller
+* Set up interfaces for world simulator
+* set up interfaces for display manager
+
 #### Sprint review:
 * What has been done?
     *  Created the abstract rabbit class with male and female rabbit subclasses. (Seb, Lubnah, James)
@@ -70,6 +77,10 @@
 
 ### Day 2, Sprint 3: 60 minutes
 #### Scrum master: James
+
+#### Sprint backlog:
+* Merge the initial versions of the model, manager and display
+
 #### Sprint review:
 * What has been done?
     * The whole group worked together to merge the classes they made in the previous sprint to a branch.
@@ -85,6 +96,12 @@
 
 ### Day 2, Sprint 4: 60 minutes
 #### Scrum master: Lubnah
+
+#### Sprint backlog:
+* Build tests for display manager
+* Build tests for rabbit classes
+* Improve Git performance of the group
+
 #### Sprint review:
 * What has been done?
     * Testing the Display Manager and logging. (Tolga and Philip)
@@ -103,6 +120,11 @@
 
 ### Day 2, Sprint 5: 60 minutes
 #### Scrum master: Lubnah
+
+#### Sprint backlog:
+* Find solution to memeory exception
+* Improve testing on rabbit classes
+
 #### Sprint review:
 * What has been done?
     * Trying to solve the memory exception in the heap. (James, Alonso, Colette and Philip)
@@ -120,6 +142,12 @@
 
 ### Day 3, Sprint 6: 120 minutes
 #### Scrum master: Phil
+
+#### Sprint backlog:
+* Build a new non-object version of the simulator
+* Improve display of output
+* Improve Gitguide for new issues
+
 #### Sprint review:
 * What has been done?
     * We began work on an alternative object-based version of bunny breeding being done in parallel with the non-object version to give us more options in the future. (Lubnah, Sebastian, Colette)
@@ -145,6 +173,13 @@
 
 ### Day 3, Sprint 7: 45 minutes
 #### Scrum master: Phil
+
+#### Sprint backlog:
+* Fix Logic issues in non-object version
+* Added logging to non-object version
+* Get Display to show when simulator is done running
+* Add new information to Gitguide FAQ
+
 #### Sprint review:
 * What has been done?
     * Fixed logic issues in the non-object version. (Alonso, James, Philip)
@@ -170,6 +205,12 @@
 
 ### Day 3, Sprint 8: 90 minutes
 #### Scrum master: Sebastian
+
+#### Sprint backlog:
+* Merge new display with non-object implementation
+* Get a text file output after run
+* New tests for new elements of project
+
 #### Sprint review:
 * What has been done?
     * Merged display with no-object implementation. (Alonso, Tolga)
@@ -191,6 +232,12 @@
 
 ### Day 3, Sprint 9: 30 minutes
 #### Scrum master: Sebastian
+
+#### Sprint backlog:
+* Complete working version
+* Tidy Trello board
+* Unify developers builds
+
 #### Sprint review:
 * What has been done?
     * Working version onto master. (Colette + moral support from team)
@@ -211,6 +258,12 @@
 
 ### Day 4, Sprint 10: 90 minutes
 #### Scrum master: Tolga
+
+#### Sprint backlog:
+* Plan for new fox features
+* Update Trello board
+* Add new requirements to both object and non-object version
+
 #### Sprint review:
 * What has been done?
     * Updated Trello board for new fox feature. (Everyone)
@@ -228,6 +281,11 @@
 
 ### Day 4, Sprint 11: 90 minutes
 #### Scrum master: Tolga
+
+#### Sprint backlog:
+* Have working foxes in non-object version
+* Fix fox births in object version
+
 #### Sprint review:
 *	What has been done?
     * Implemented female and male fox objects simulation.
@@ -248,6 +306,12 @@
 
 ### Day 4, Sprint 12: 60 minutes
 #### Scrum master: Alonso
+
+#### Sprint backlog:
+* Complete build of non-object version
+* Complete build of object version
+* Version tests
+
 #### Sprint review:
 *	What has been done?
     * Object team successfully implemented fox reproduction.
