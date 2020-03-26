@@ -3,10 +3,6 @@
 
 ----
 
-**TODO: Maybe move sprint log to another file, or add contents list (with links) to this file.**
-
-----
-
 **TODO: Fix inconsistent formatting.**
 
 ----
