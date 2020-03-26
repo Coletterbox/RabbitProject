@@ -209,20 +209,41 @@
  * What could be done differently?
    * Git
    
-   ----
+ ----
    
 #### Day 4, Sprint 10: 1 hour and 30 mins
 #### Scrum master: Tolga
 #### Sprint review:
 *	What has been done?
-*	Updated Trello board for new fox feature (Everyone)
-*	Working on no object simulation and object simulation fox implementation in separate groups
+ *	Updated Trello board for new fox feature (Everyone)
+ *	Working on no object simulation and object simulation fox implementation in separate groups
+ 
 #### Sprint retrospective:
 *	What went well?
-* Got logic done for the foxes in no object simulation
-*	Was nice having two meeting in one chat
+ * Got logic done for the foxes in no object simulation
+ *	Was nice having two meeting in one chat
 *	What did not go as well?
-*	Git
+ *	Git
 *	What could be done differently?
-*	Mixing up teams for experimenting and trying something differently with teams
+ *	Mixing up teams for experimenting and trying something differently with teams
 
+----
+
+#### Day 4, Sprint 11: 1 hour 
+#### Scrum master: Tolga
+#### Sprint review:
+*		What has been done?
+ *		Implemented female and male fox objects simulation
+ *	 Give birth works in objects simulation
+ *		Made progress fox eating rabbits in no object’s version of simulation
+ *		Bug found and fixed in no objects simulation
+ 
+#### Sprint retrospective:
+*	What went well?
+ *	Did more coding (L)
+ *		Did less Git(P)
+*	What did not go as well?
+ *		No test and logs have been done.
+*		What could be done differently?
+ *	Needs more testing and logs for both objects and no objects simulation
+ *		Adding note for iml file problems to the readme (C)
