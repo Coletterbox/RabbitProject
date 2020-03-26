@@ -33,6 +33,8 @@ public class MatrixSimulation {
     private long maleRabbitsAlive = 0;
     private long femaleRabbitsAlive = 0;
 
+    private long rabbitsEaten = 0;
+
     private long maleFoxesLived = 0;
     private long femaleFoxesLived = 0;
 
@@ -55,7 +57,7 @@ public class MatrixSimulation {
 
         //flow of time
         //if there are no more rabbits - game over
-        while((maleRabbitsAlive+femaleFoxesAlive > 0 ) && monthsElapsed < numberOfMonths){
+        while((getRabbitsAlive() > 0 ) && monthsElapsed < numberOfMonths){
             log.trace("------------------------------");
             log.trace("Generation " + monthsElapsed + " start");
             log.trace("---------------");
@@ -73,13 +75,13 @@ public class MatrixSimulation {
                 displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
             }
 
-            monthsElapsed++;
+
         }
 
 
 
         if(displayOutputType == 2){
-            displayManager.displayTimeElapsed(numberOfMonths);
+            displayManager.displayTimeElapsed(monthsElapsed);
             displayManager.displayRabbitsAlive(maleRabbitsAlive, femaleRabbitsAlive);
             displayManager.displayRabbitsLived(maleRabbitsLived, femaleRabbitsLived);
         }
@@ -94,15 +96,30 @@ public class MatrixSimulation {
         femaleRabbitsByAge.set(0, 1l);
         maleRabbitsByAge.set(0, 1l);
 
-        log.trace("Lucifer and Philip");
-        femaleFoxesByAge.set(0, 1l);
-        maleFoxesByAge.set(0, 1l);
+
 
         femaleRabbitsLived++;
         maleRabbitsLived++;
 
+        femaleRabbitsAlive++;
+        maleRabbitsAlive++;
+
+
+    }
+
+
+    public void weLetTheDogsOut(){
+
+        log.trace("Lucifer and Philip");
+        femaleFoxesByAge.set(0, 1l);
+        maleFoxesByAge.set(0, 1l);
+
+
         femaleFoxesLived++;
         maleFoxesLived++;
+
+        femaleFoxesAlive++;
+        maleFoxesAlive++;
     }
 
 
@@ -118,12 +135,14 @@ public class MatrixSimulation {
 
         //getting the number of couples for Rabbits
         long numberOfRabbitCouples = getAnimalCouples(RABBITMATURITY, femaleRabbitsByAge, maleRabbitsByAge);
-        log.trace("Number of couples available: " + numberOfRabbitCouples);
+        log.trace("Number of rabbit couples available: " + numberOfRabbitCouples);
 
         //getting the number of couples for Foxes
         long numberOfFoxCouples = 0;
         if(monthsElapsed % 12 == 0){
             numberOfFoxCouples = getAnimalCouples(FOXMATURITY, femaleFoxesByAge, maleFoxesByAge);
+            log.trace("Number of fox couples available: " + numberOfFoxCouples);
+
         }
 
 
@@ -134,6 +153,8 @@ public class MatrixSimulation {
         log.trace("Female rabbit population after aging: " + femaleRabbitsByAge.toString());
         log.trace("Male rabbit population after aging: " + maleRabbitsByAge.toString());
 
+        log.trace("Female fox population after aging: " + femaleFoxesByAge.toString());
+        log.trace("Male fox population after aging: " + maleFoxesByAge.toString());
 
 
 
@@ -146,6 +167,8 @@ public class MatrixSimulation {
         if(monthsElapsed % 12 == 0){
             //breed foxes method
             generateNewGeneration(numberOfFoxCouples, 10, "Fox");
+            log.trace("Female fox population after new population born: " + femaleFoxesByAge.toString());
+            log.trace("Male fox population after new population born: " + maleFoxesByAge.toString());
 
         }
 
@@ -153,18 +176,24 @@ public class MatrixSimulation {
         removeDeadAnimals();
         log.trace("Female rabbit population after funerals: " + femaleRabbitsByAge.toString());
         log.trace("Male rabbit population after funerals: " + maleRabbitsByAge.toString());
+        log.trace("Female fox population after funerals: " + femaleFoxesByAge.toString());
+        log.trace("Male fox population after funerals: " + maleFoxesByAge.toString());
         updateAliveAnimals();
 
 
 
-        foxesEatRabbits();
 
+        foxesEatRabbits();
+        log.trace("Female rabbit population after feast: " + femaleRabbitsByAge.toString());
+        log.trace("Male rabbit population after feast: " + maleRabbitsByAge.toString());
+
+        monthsElapsed++;
 
 
     }
 
 
-    public long getAnimalCouples(int animalMaturity, List<Long> femaleAnimalsByAge, List<Long> maleAnimalsByAge){
+    public long getAnimalCouples(int animalMaturity, List<Long> femaleAnimalsByAge, List<Long> maleAnimalsByAge) {
 
         long numberOfMatureFemaleAnimals = 0;
         long numberOfMatureMaleAnimals = 0;
@@ -194,43 +223,57 @@ public class MatrixSimulation {
         //exit this method if no more bunnies
 
         long totalNumberOfFoxes = maleFoxesAlive + femaleFoxesAlive;
-        long numberOfRabbitsToEat = (long) random.nextDouble() * totalNumberOfFoxes*maxNumberOfRabbitsFoxEats;
+        long numberOfRabbitsToEat = (long) (random.nextDouble() * (totalNumberOfFoxes*maxNumberOfRabbitsFoxEats));
 
 
-        boolean victimIsFemale = random.nextBoolean();
-
-        /*
-        select the rabbit to be eaten from an index
-           - can't be 0!
-
-
-
-        */
         for(int i = 0; i < numberOfRabbitsToEat; i++){
 
-            int randomAgeIndex = random.nextInt(femaleRabbitsByAge.size());
-
-            if(victimIsFemale){
-
-
-                //find the oldest rabbit in a list
-                //finding the last nonzero value in a list
-
-
-
-
-            }
-            else{
-
-            }
-
-
+            if(getRabbitsAlive() == 0) break;
+            long randomRabbitNumber = (long) (random.nextDouble() * (maleRabbitsAlive + femaleRabbitsAlive));
+            killRandomRabbit(randomRabbitNumber);
 
         }
+    }
 
 
 
 
+    public void killRandomRabbit(long randomRabbitNumber){
+
+
+        long currentRabbitNumber = 0;
+
+
+        //if the random rabbit is female
+        if(randomRabbitNumber < femaleRabbitsAlive){
+            for(int i = 0; i < femaleRabbitsByAge.size(); i++){
+                currentRabbitNumber += femaleRabbitsByAge.get(i);
+                if(randomRabbitNumber < currentRabbitNumber){
+                    //kill a rabbit in this age group
+                    femaleRabbitsByAge.set(i, (femaleRabbitsByAge.get(i)-1));
+                    femaleRabbitsAlive--;
+                    rabbitsEaten++;
+                    break;
+                }
+                //want to kill 4th rabbit
+                // [1, 0, 2, 3, 4]
+            }
+        }
+        //if not then it's male
+        else{
+            currentRabbitNumber = femaleRabbitsAlive;
+            for(int i = 0; i < maleRabbitsByAge.size(); i++){
+                currentRabbitNumber += maleRabbitsByAge.get(i);
+                if(randomRabbitNumber < currentRabbitNumber){
+                    //kill a rabbit in this age group
+                    maleRabbitsByAge.set(i, (maleRabbitsByAge.get(i)-1));
+                    maleRabbitsAlive--;
+                    rabbitsEaten++;
+                    break;
+                }
+
+            }
+        }
     }
 
 
@@ -245,19 +288,19 @@ public class MatrixSimulation {
         boolean coupleSuccess;
 
         //iterate over all the rabbit couples
-        log.trace("---------");
+        //log.trace("---------");
         for(int i = 0; i < numberOfCouples; i++) {
             //will the couple be successful?
 
-            log.trace("Couple " + i + " trying for kids");
+            //log.trace(animalType + " Couple " + i + " trying for kids");
             coupleSuccess = random.nextBoolean();
-            log.trace("was successful: " + coupleSuccess);
+            //log.trace("was successful: " + coupleSuccess);
             if(coupleSuccess) {
                 //one couple makes new rabbits
 
                 //picking number of rabbits
                 numberOfNewAnimals = random.nextInt(litterSize) + 1;
-                log.trace("they had " + numberOfNewAnimals + " kids");
+                //log.trace("they had " + numberOfNewAnimals + " kids");
                 for (int j = 0; j < numberOfNewAnimals; j++) {
 
                     boolean isFemale = random.nextBoolean();
@@ -279,9 +322,9 @@ public class MatrixSimulation {
 
                 }
             }
-            log.trace("---");
+            //log.trace("---");
         }
-        log.trace("---------");
+        //log.trace("---------");
 
         if(animalType.equals("Rabbit")) {
             femaleRabbitsByAge.set(0, newFemaleGeneration);
@@ -319,20 +362,20 @@ public class MatrixSimulation {
         long newFemaleFoxesAlive = 0;
         long newMaleFoxesAlive = 0;
 
-        for(long l : femaleRabbitsByAge){
-            newFemaleRabbitsAlive += l;
+        for(long lo : femaleRabbitsByAge){
+            newFemaleRabbitsAlive += lo;
         }
 
-        for(long l : maleRabbitsByAge){
-            newMaleRabbitsAlive += l;
+        for(long lo: maleRabbitsByAge){
+            newMaleRabbitsAlive += lo;
         }
 
-        for(long l : maleFoxesByAge){
-            newMaleFoxesAlive += 1;
+        for(long lo : maleFoxesByAge){
+            newMaleFoxesAlive += lo;
         }
 
-        for(long l : femaleFoxesByAge){
-            newMaleFoxesAlive += 1;
+        for(long lo : femaleFoxesByAge){
+            newFemaleFoxesAlive += lo;
         }
 
         femaleRabbitsAlive = newFemaleRabbitsAlive;
@@ -340,7 +383,6 @@ public class MatrixSimulation {
         femaleFoxesAlive = newFemaleFoxesAlive;
         maleRabbitsAlive = newMaleFoxesAlive;
     }
-
 
 
     public static void initialiseLogging() {
@@ -380,5 +422,9 @@ public class MatrixSimulation {
 
     public long getFemaleRabbitsAlive() {
         return femaleRabbitsAlive;
+    }
+
+    public long getRabbitsAlive(){
+        return getFemaleRabbitsAlive() + getMaleRabbitsAlive();
     }
 }
