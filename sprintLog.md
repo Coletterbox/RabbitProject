@@ -24,6 +24,12 @@
 
 ### Day 1, Sprint 1: 90 minutes
 #### Scrum master: Colette & Alonso
+
+#### Sprint backlog:
+* Plan User Stories
+* Plan UML
+* Plan MVC
+
 #### Sprint review:
 * What has been done?
     * UML Diagrams
