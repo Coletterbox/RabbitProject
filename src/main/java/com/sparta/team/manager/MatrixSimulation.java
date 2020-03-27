@@ -21,8 +21,8 @@ public class MatrixSimulation {
     private int foxMaturity = 10;
     private int foxLifespan = 60;
 
-    private List<Long> femaleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
-    private List<Long> maleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
+    private List<Long> femaleRabbitsByAge;
+    private List<Long> maleRabbitsByAge;
 
     private List<Long> femaleFoxesByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
     private List<Long> maleFoxesByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
@@ -49,6 +49,9 @@ public class MatrixSimulation {
     private int foxBreedingFrequency = 12;
     private int foxIntroductionMonth = 0;
 
+    private int foxLitterSize = 10;
+    private int rabbitLitterSize= 14;
+
 
 
 
@@ -60,8 +63,8 @@ public class MatrixSimulation {
 
 
         initialiseLogging();
-        populateInitialGeneration();
         importProperties();
+        populateInitialGeneration();
         DisplayManager displayManager = new DisplayManager(displayOutputType);
 
 
@@ -150,24 +153,14 @@ public class MatrixSimulation {
             String foxBreedingFrequency = properties.getProperty("foxBreedingFrequency");
             this.foxBreedingFrequency = Integer.parseInt(foxBreedingFrequency);
 
+            String rabbitMaxLitterSize = properties.getProperty("rabbitMaxLitterSize");
+            rabbitLitterSize = Integer.parseInt(rabbitMaxLitterSize);
+
+            String foxMaxLitterSize = properties.getProperty("foxMaxLitterSize");
+            foxLitterSize = Integer.parseInt(foxMaxLitterSize);
 
 
 
-
-
-            /*
-#initialFemaleRabbitPopulation=1
-#initialMaleRabbitPopulation=1
-#initialFemaleFoxPopulation=1
-#initialMaleFoxPopulation=1
-#rabbitMaxLitterSize
-#foxMaxLitterSize
-#foxIntroductionMonth
-
-
-
-
-             */
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -178,6 +171,9 @@ public class MatrixSimulation {
 
 
     public void populateInitialGeneration() {
+        femaleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
+        maleRabbitsByAge = new ArrayList<Long>(Collections.nCopies(rabbitLifespan, 0l));
+
 
         log.trace("Adam and Eve added");
         femaleRabbitsByAge.set(0, 1l);
@@ -242,14 +238,14 @@ public class MatrixSimulation {
 
 
         //breeding
-        generateNewGenerationExperimental(numberOfRabbitCouples, 14, "Rabbit");
+        generateNewGenerationExperimental(numberOfRabbitCouples, rabbitLitterSize, "Rabbit");
         log.trace("Female rabbit population after new population born: " + femaleRabbitsByAge.toString());
         log.trace("Male rabbit population after new population born: " + maleRabbitsByAge.toString());
 
 
         if ((monthsElapsed - foxIntroductionMonth) % foxBreedingFrequency == 0) {
             //breed foxes method
-            generateNewGeneration(numberOfFoxCouples, 10, "Fox");
+            generateNewGeneration(numberOfFoxCouples, foxLitterSize, "Fox");
             log.trace("Female fox population after new population born: " + femaleFoxesByAge.toString());
             log.trace("Male fox population after new population born: " + maleFoxesByAge.toString());
 
