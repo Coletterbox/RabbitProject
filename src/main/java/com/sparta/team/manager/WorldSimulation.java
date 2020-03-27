@@ -5,10 +5,9 @@ import com.sparta.team.model.*;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class WorldSimulation {
 
@@ -33,6 +32,17 @@ public class WorldSimulation {
     public void startSimulation(int numberOfSeconds, int outputType) {
 
         initialiseLogging();
+
+//        Properties properties = new Properties();
+//        try {
+//            properties.load(new FileReader("resources/simulationSettings.properties"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        String foxEatingAge = properties.getProperty("foxEatingAge");
+//        this.startEatingAt = Integer.parseInt(foxEatingAge);
+//        String foxIntroducedAt = properties.getProperty("foxIntroducedAt");
+//        this.introduceFoxesAt = Integer.parseInt(foxIntroducedAt);
 
         //hardcoded initial population
         maleRabbits.add(new MaleRabbit());
