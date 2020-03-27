@@ -1,7 +1,5 @@
 # Rabbit Project
 
-----
-
 ![](https://media.giphy.com/media/YQCp9d6HrlnoI/giphy.gif)
 
 ----
@@ -27,7 +25,6 @@
 - Female Rabbits have a 50% chance of becoming pregnant  
 - If a male is allocated to a female, they cannot be allocated to another female for 1 month. After this time, they can be allocated to any other free female
 
-
 ### Phase 3: Foxes
 #### The client has asked that the following requirements be implemented:  
 - The simulator will also include foxes to affect the population of rabbits  
@@ -45,11 +42,11 @@
     
 ----
 
-### User Guide:
+![](https://www.babyanimalzoo.com/wp-content/uploads/2012/01/fox-babies-cubs.png)
 
-How to use the simulation:
+### User Guide
+#### How to use the simulation:
 	
- 1. The user is prompted to enter the number of months they would like to run the simulation for.
- 2 The user is then asked where they would like to view the information collected about the foxes and rabbits over the number of months given or each month.
-
-	  3 The user is then directed to the Simulation Results text file where they will be displayed information on the foxes and rabbits in the format that they chose
+1. The user is prompted to enter the number of months for which they would like to run the simulation.
+1. The user is then asked whether they would like to view the information collected about the foxes and rabbits for each month or be given an overview for the total period of time.
+1. The user is then directed to the Simulation Results text file where they will be displayed information on the foxes and rabbits in the format that they chose.
