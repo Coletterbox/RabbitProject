@@ -28,7 +28,7 @@
 ### Phase 3: Foxes
 #### The client has asked that the following requirements be implemented:
 - The simulator will also include foxes to affect the population of rabbits.
-- The program begins with a single male and female fox
+- The program begins with a single male and female fox.
 - Foxes breed once a year.
 - A pregnant fox can have between 1-10 kits.
 - Females are able to breed after 10 months.
