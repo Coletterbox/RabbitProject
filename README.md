@@ -42,3 +42,9 @@
     - Number of male foxes alive      
     - Number of female foxes alive      
     - Number of rabbits that have died (natural death and eaten)
+    
+----
+
+### User Guide:
+
+
