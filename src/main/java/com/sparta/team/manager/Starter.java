@@ -9,8 +9,9 @@ public class Starter {
     public static void main(String[] args) {
         UserInput userInput = new UserInput();
         int type = userInput.getTerminalOutputForResultType();
+        int numberOfSeconds = userInput.getTerminalNumberOfMonths();
         WorldSimulation worldSimulation = new WorldSimulation();
-        worldSimulation.startSimulation(40, type);
-
+        worldSimulation.startSimulation(numberOfSeconds, type);
+//        matrixSimulation.startSimulation(10, type);
     }
 }

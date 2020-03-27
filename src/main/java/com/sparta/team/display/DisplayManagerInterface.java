@@ -1,3 +1,4 @@
+
 package com.sparta.team.display;
 
 public interface DisplayManagerInterface {
@@ -8,4 +9,6 @@ public interface DisplayManagerInterface {
     void displayAnimalsEaten(long lived, long alive, long eaten);
     void displayMessageInReport(String message);
     void writerClose();
+    void displayAnimalsDied(long eaten, long totalDied);
+
 }
