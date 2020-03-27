@@ -47,4 +47,8 @@
 
 ### User Guide:
 
-
+How to use the simulation:
+	
+ *The user is prompted to enter the number of months they would like to run the simulation for.
+*The user is then asked where they would like to view the information collected about the foxes and rabbits over the number of months given or each month.
+	 The user is then directed to the Simulation Results text file where they will be displayed information on the foxes and rabbits in the format that they chose
