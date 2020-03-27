@@ -16,8 +16,8 @@ public class FoxTester {
 
     @BeforeEach
     public void setup() {
-        fox.add(new MaleFox());
-        fox.add(new MaleFox());
+        fox.add(new FemaleFox());
+        fox.add(new FemaleFox());
         fox.add(new FemaleFox());
         fox.add(new FemaleFox());
     }
@@ -39,13 +39,6 @@ public class FoxTester {
     }
 
     @Test
-    @DisplayName("Create Male Fox")
-    public void createMaleFox() {
-        Animal maleFox = fox.get(0);
-        Assertions.assertEquals(true, maleFox instanceof Fox);
-    }
-
-    @Test
     @DisplayName("Create Female Fox")
     public void createFemaleFox() {
         Animal femaleFox = fox.get(2);
@@ -55,32 +48,40 @@ public class FoxTester {
     @Test
     @DisplayName("Increase fox age ")
     public void incrementedFoxAge() {
-        fox.get(0).incrementAge();
-        Assertions.assertEquals(1, fox.get(0).getAgeInMonths());
+        fox.get(3).incrementAge();
+        Assertions.assertEquals(1, fox.get(3).getAgeInMonths());
     }
 
     @Test
     @DisplayName("Mate at Matured age")
     public void mateAtMaturedAge() {
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        Assertions.assertEquals(true, fox.get(0).isMature());
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        Assertions.assertEquals(true, fox.get(2).isMature());
     }
 
     @Test
     @DisplayName("Do not mate at young age")
     public void notMaturedAge() {
-        fox.get(0).incrementAge();
-        fox.get(0).incrementAge();
-        Assertions.assertEquals(false, fox.get(0).isMature());
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        fox.get(2).incrementAge();
+        Assertions.assertEquals(false, fox.get(2).isMature());
     }
 
     @Test

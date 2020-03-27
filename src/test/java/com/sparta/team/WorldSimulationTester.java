@@ -26,7 +26,7 @@ public class WorldSimulationTester {
     }
 
     @Test
-    @DisplayName("Successful birth of Fox")
+    @DisplayName("Successfully destory the world")
     public void runSimulation() {
 
     }
