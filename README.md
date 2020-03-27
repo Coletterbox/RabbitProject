@@ -42,11 +42,11 @@
     
 ----
 
+## User Guide
+
 ![](https://www.babyanimalzoo.com/wp-content/uploads/2012/01/fox-babies-cubs.png)
 
-### User Guide
-#### How to use the simulation:
-	
+### How to use the simulation:	
 1. The user is prompted to enter the number of months for which they would like to run the simulation.
 1. The user is then asked whether they would like to view the information collected about the foxes and rabbits for each month or be given an overview for the total period of time.
 1. The user is then directed to the Simulation Results text file where they will be displayed information on the foxes and rabbits in the format that they chose.
