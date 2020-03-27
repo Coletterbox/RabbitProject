@@ -1,8 +1,6 @@
 package com.sparta.team;
 
-import com.sparta.team.model.FemaleRabbit;
-import com.sparta.team.model.MaleRabbit;
-import com.sparta.team.model.Rabbit;
+import com.sparta.team.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,10 +9,10 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RabbitTest {
+public class RabbitTester {
 
-    private List<Rabbit> rabbits = new ArrayList<>();
-    private List<Rabbit> bunnies = new ArrayList<>();
+    private List<Animal> rabbits = new ArrayList<>();
+    private List<Animal> bunnies = new ArrayList<>();
 
     @BeforeEach
     public void setup() {
@@ -27,10 +25,10 @@ public class RabbitTest {
     @Test
     @DisplayName("Successful birth")
     public void testFemalesGiveBirth() {
-        for (Rabbit rabbit : rabbits) {
+        for (Animal rabbit : rabbits) {
             if (rabbit instanceof FemaleRabbit) {
                 List<Rabbit> newBunnies = ((FemaleRabbit) rabbit).giveBirth();
-                for (Rabbit newBunny : newBunnies) {
+                for (Animal newBunny : newBunnies) {
                     bunnies.add(newBunny);
                 }
             }
@@ -43,23 +41,16 @@ public class RabbitTest {
     @Test
     @DisplayName("Create Male Rabbit")
     public void createMaleRabbit() {
-        Rabbit maleRabbit = rabbits.get(0);
-        Assertions.assertEquals(true, maleRabbit instanceof MaleRabbit);
+        Animal maleRabbit = rabbits.get(0);
+        Assertions.assertEquals(true, maleRabbit instanceof Rabbit);
     }
 
     @Test
-    @DisplayName("Create Female Rabbit")
-    public void createFemaleRabbit() {
-        Rabbit femaleRabbit = rabbits.get(2);
-        Assertions.assertEquals(true, femaleRabbit instanceof FemaleRabbit);
+    @DisplayName("Increase rabbit age ")
+    public void incrementedRabbitAge() {
+        rabbits.get(0).incrementAge();
+        Assertions.assertEquals(1, rabbits.get(0).getAgeInMonths());
     }
-
-//    @Test
-//    @DisplayName("Increase rabbit age ")
-//    public void incrementedRabbitAge() {
-//        rabbits.get(0).incrementAge();
-//        Assertions.assertEquals(1, rabbits.get(0).getAgeInMonths());
-//    }
 
     @Test
     @DisplayName("Mate at Matured age")
@@ -82,11 +73,15 @@ public class RabbitTest {
     @Test
     @DisplayName("Is Pregnant")
     public void isPregnant() {
-
+        FemaleAnimal femaleAnimal = (FemaleAnimal) rabbits.get(2);
+        femaleAnimal.giveBirth();
+        Assertions.assertEquals(true, femaleAnimal.isPregnant());
     }
 
     @Test
     @DisplayName("Is No Longer Pregnant")
     public void isNotPregnant() {
+        FemaleAnimal femaleAnimal = (FemaleAnimal) rabbits.get(3);
+        Assertions.assertEquals(false, femaleAnimal.isPregnant());
     }
 }

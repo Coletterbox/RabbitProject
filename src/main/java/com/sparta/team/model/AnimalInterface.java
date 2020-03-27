@@ -1,6 +1,6 @@
 package com.sparta.team.model;
 
-public interface RabbitInterface {
+public interface AnimalInterface {
 
     boolean isMature();
     void incrementAge();

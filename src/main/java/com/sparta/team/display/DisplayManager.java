@@ -5,26 +5,29 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class DisplayManager implements DisplayManagerInterface {
 
-    //static final String LOG_PROPERTIES_FILE_RESULTS = "resources/log4jResults.properties";
-    //static Logger log = Logger.getLogger(DisplayManager.class.getName());
+    static final String LOG_PROPERTIES_FILE_DISPLAY = "resources/log4j.properties";
+    static Logger log = Logger.getLogger(DisplayManager.class.getName());
 
     private long aliveM = 0;
     private long aliveF = 0;
+    private long livedM = 0;
+    private long livedF = 0;
     private int type;
     private Writer writer = null;
 
     public DisplayManager(int type) {
         this.type = type;
-        // initialiseLogging();
+        initialiseLogging();
         initialWriter();
     }
 
-//    public static void initialiseLogging() {
-//        PropertyConfigurator.configure(LOG_PROPERTIES_FILE_RESULTS);
-//    }
+    public static void initialiseLogging() {
+        PropertyConfigurator.configure(LOG_PROPERTIES_FILE_DISPLAY);
+    }
 
     @Override
     public void displayTimeElapsed(int time) {
@@ -38,46 +41,60 @@ public class DisplayManager implements DisplayManagerInterface {
         writeToFile("Simulation running for [" + (time / 12) + " years " + (time % 12) + " months]");
     }
 
-    @Override
-    public void displayMaleRabbitsAlive(long rabbits) {
-        writeToFile("Male rabbits alive [" + rabbits + "]");
+    private void displayMaleRabbitsAlive(String animalType, long rabbits) {
+        writeToFile("Male " + animalType + " alive [" + rabbits + "]");
+    }
+
+    private void displayFemaleRabbitsAlive(String animalType, long rabbits) {
+        writeToFile("Female " + animalType + " alive [" + rabbits + "]");
+    }
+
+    private void displayMaleRabbitsLived(String animalType, long rabbits) {
+        writeToFile("Male " + animalType + " lived [" + rabbits + "] has died [" + (rabbits - aliveM) + "]");
+    }
+
+    private void displayFemaleRabbitsLived(String animalType, long rabbits) {
+        writeToFile("Female " + animalType + " lived [" + rabbits + "] has died [" + (rabbits - aliveF) + "]");
     }
 
     @Override
-    public void displayFemaleRabbitsAlive(long rabbits) {
-        writeToFile("Female rabbits alive [" + rabbits + "]");
+    public void displayAnimalsLived(String animalType, long maleRabbits, long femaleRabbits) {
+        livedM = maleRabbits;
+        livedF = femaleRabbits;
+        displayMaleRabbitsLived(animalType, maleRabbits);
+        displayFemaleRabbitsLived(animalType, femaleRabbits);
     }
 
     @Override
-    public void displayMaleRabbitsLived(long rabbits) {
-        writeToFile("Male rabbits lived [" + rabbits + "] has died [" + (rabbits - aliveM) + "]");
-    }
-
-    @Override
-    public void displayFemaleRabbitsLived(long rabbits) {
-        writeToFile("Female rabbits lived [" + rabbits + "] has died [" + (rabbits - aliveF) + "]");
-    }
-
-    @Override
-    public void displayRabbitsLived(long maleRabbits, long femaleRabbits) {
-        displayMaleRabbitsLived(maleRabbits);
-        displayFemaleRabbitsLived(femaleRabbits);
-    }
-
-    @Override
-    public void displayRabbitsAlive(long maleRabbits, long femaleRabbits) {
+    public void displayAnimalsAlive(String animalType, long maleRabbits, long femaleRabbits) {
         aliveM = maleRabbits;
         aliveF = femaleRabbits;
-        displayMaleRabbitsAlive(maleRabbits);
-        displayFemaleRabbitsAlive(femaleRabbits);
+        displayMaleRabbitsAlive(animalType, maleRabbits);
+        displayFemaleRabbitsAlive(animalType, femaleRabbits);
+    }
+
+    @Override
+    public void displayAnimalsEaten(long lived, long alive, long eaten) {
+        writeToFile("Rabbits eaten by foxes [" + eaten + "]");
+        writeToFile("Rabbits that died of natural death [" + (lived - alive - eaten) + "]");
+    }
+
+    public void displayAnimalsDied(long eaten, long totalDied) {
+        writeToFile("Rabbits eaten by foxes [" + eaten + "]");
+        writeToFile("Rabbits that died of natural causes [" + (totalDied - eaten) + "]");
+    }
+
+    @Override
+    public void displayMessageInReport(String message) {
+        writeToFile(message);
     }
 
     private void initialWriter() {
         try {
             writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream("SimulationResults.txt"), "utf-8"));
+                    new FileOutputStream("SimulationResults.txt"), StandardCharsets.UTF_8));
         } catch (IOException ex) {
-            // Report log please
+            log.debug(ex);
         }
     }
 
@@ -85,7 +102,7 @@ public class DisplayManager implements DisplayManagerInterface {
         try {
             writer.write(line + "\n");
         } catch (IOException e) {
-            e.printStackTrace(); // Report log please
+            log.debug(e);
         }
     }
 
@@ -93,10 +110,11 @@ public class DisplayManager implements DisplayManagerInterface {
         System.out.println("Please check results file for results.");
         writeToFile("______________Simulation Finished______________");
         writeToFile("_                                             _");
+        log.debug("Simulation Finished");
         try {
             writer.close();
         } catch (IOException e) {
-            e.printStackTrace(); // Report log please
+            log.debug(e);
         }
     }
 }
