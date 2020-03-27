@@ -37,7 +37,7 @@ public class FoxTester {
         if (kits.size() >= 2 && kits.size() <= 28) check = true;
         Assertions.assertEquals(true, check);
     }
-    
+
     @Test
     @DisplayName("Create Female Fox")
     public void createFemaleFox() {
