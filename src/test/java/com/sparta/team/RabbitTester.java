@@ -46,13 +46,6 @@ public class RabbitTester {
     }
 
     @Test
-    @DisplayName("Create Female Rabbit")
-    public void createFemaleRabbit() {
-        Animal femaleRabbit = rabbits.get(2);
-        Assertions.assertEquals(true, femaleRabbit instanceof Rabbit);
-    }
-
-    @Test
     @DisplayName("Increase rabbit age ")
     public void incrementedRabbitAge() {
         rabbits.get(0).incrementAge();
