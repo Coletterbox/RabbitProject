@@ -1,4 +1,5 @@
 # Guide to using Git/GitHub and (hopefully) not breaking anything!
+## [Link to version that isn't specifically based on this project.](https://github.com/Coletterbox/Git-Guide/blob/master/README.md)
 
 ----
 
